@@ -1,7 +1,56 @@
 <div class="container">
 
-    <h1>Welcome to Create Advertisementform</h1>
-    <p>Look It works!</p>
-<button mat-raised-button color="accent" (click)="btnClick()">Create</button>
+	<div class="card">
+
+		<h1>Create Advertisement</h1>
+		<mat-form-field class="field" appearance="outline" color="accent">
+			<mat-label >Title</mat-label>
+			<input matInput placeholder="title" >
+			<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+			<mat-hint>ex. Fertilizer</mat-hint>
+		  </mat-form-field>
+		<mat-form-field class="field" appearance="outline" color="accent">
+			<mat-label>AdvertisementIdentifier</mat-label>
+			<input matInput placeholder="identifier">
+			<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+			<mat-hint>ex. ad02</mat-hint>
+		  </mat-form-field>
+		  <button mat-raised-button color="accent" >Create</button>
+
+	</div>
 </div>
 
+<!-- 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long advertiseId;
+	
+	@Size(min=5, max=10,message = "title can be 5 to 10 characters")
+	@NotBlank(message = "Please Provide a Advertisement title Dont be lazy")
+	@Column(name="ad_titles",unique=true,updatable=false)
+	private String title;
+	
+	@Size(min=2, max=4,message = "identifier can be 5 to 10 characters")
+	@NotBlank(message = "Please Provide a Identifier")
+	@Column(name="ad_identifiers",unique = true, updatable = false)
+	private String advertiseIdentifier;
+	
+	@Size(min=5, max=100,message = "Offer Description can be Big till 100 characters")
+	@NotBlank(message = "Please Provide a Offer Description Give something exciting")
+	@Column(name="offers")
+	private String offerDescription;
+	
+	@Size(min=0,message = "Hello! Available stock should be more than 0 ")
+	@NotBlank(message = "Please Provide available Stock")
+	@Column(name="stock")
+	private String availableStock;
+	
+	
+	/**
+	 * @param title
+	 * @param advertiseIdentifier
+	 * @param offerDescription
+	 * @param availableStock
+	 * @param postedBy
+	 */
+ -->

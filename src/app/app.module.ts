@@ -11,8 +11,9 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { NewdealerformComponent } from './user_components/newdealerform/newdealerform.component';
-
-
+import { HomeComponent } from './adservice_components/home/home.component';
+import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -20,16 +21,20 @@ import { NewdealerformComponent } from './user_components/newdealerform/newdeale
     NavbarComponent,
     AdvertisementformComponent,
     NewdealerformComponent,
+    HomeComponent,
     
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    
 
   ],
   providers: [MatSnackBar],

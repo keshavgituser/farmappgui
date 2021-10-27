@@ -8,17 +8,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AdvertisementformComponent implements OnInit {
 
-  constructor(private snack:MatSnackBar) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
 
-  btnClick()
-  {
-    console.log("btn click");
-    this.snack.open("Hey Welcome On Farmapp","Cancel");
-    
-    
-  }
+  
 }

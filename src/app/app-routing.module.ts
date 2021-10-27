@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
+import { HomeComponent } from './adservice_components/home/home.component';
+
 
 const routes: Routes = [
 
   {
     path:"createad",
     component:AdvertisementformComponent,
+    pathMatch:"full"
+  },
+  {
+    path:'',
+    component:HomeComponent,
     pathMatch:"full"
   }
 ];

@@ -1,5 +1,15 @@
+.field{
+    width:90%
+}
+.card{
+    width:30%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+}
 .container{
+    margin-top: 10px;
+}
+.card h1{
     text-align: center;
-    margin-top: 30px;
-
 }
