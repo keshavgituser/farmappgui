@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card">
+        <!-- (ngSubmit)="doSubmitForm()" -->
+        <h1>Register Here..</h1>
+        <form action="#">
+
+
+            <mat-form-field class="field" appearance="outline" color="accent">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+
+
+              <mat-form-field class="field-tel" appearance="fill">
+                <mat-label>Telephone</mat-label>
+                <span matPrefix>+91&nbsp;</span>
+                <input type="tel" matInput placeholder="555-555-1234">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+
+            
+        </form>
+    </div>
+</div>
+
+
+<!-- 
+    To do add a tab 
+    like
+    dealer|farmer       ->role
+    uname   uname
+    pwd     pwd
+    login   login
+    phone
+
+ -->
+
+
+
+<!-- 
+    /**
+	 * @param userId
+	 * @param userName
+	 * @param loginName
+	 * @param pwd
+	 * @param phone
+	 * @param role
+	 */
+ -->

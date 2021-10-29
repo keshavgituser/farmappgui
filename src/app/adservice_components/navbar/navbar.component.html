@@ -1,9 +1,25 @@
-<mat-toolbar class="navbar">
+<!-- <mat-toolbar class="navbar">
     <button routerLink='' mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
      <mat-icon>home</mat-icon>
    </button>
    <span>Farmer Assistant UI</span>
    <span class="example-spacer"></span>
-   <button class="navbar-btn" mat-button  color="accent" appearance="outline">Register</button>
-  <button class="navbar-btn" mat-button  color="primary">Login</button>
- </mat-toolbar>
+   <a class="navbar-btn" routerLink="register" mat-button  color="white" appearance="outline">Register</a>
+  <button class="navbar-btn" routerLink="login" mat-button  color="secondary">Login</button>
+ </mat-toolbar> -->
+
+ <mat-toolbar class="navbar">
+  <button routerLink='' mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <!-- <mat-icon>menu</mat-icon> -->
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <a class="navbar-btn" routerLink="register" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
+    <!-- <mat-icon>perm_identity</mat-icon> -->
+    <mat-icon>supervised_user_circle</mat-icon>
+  </a>
+  <a class="navbar-btn" routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>lock</mat-icon>
+  </a>
+</mat-toolbar>

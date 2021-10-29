@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <!-- (ngSubmit)="doSubmitForm()" -->
+        <h1 color="accent">Login Here..</h1>
+        <form action="#">
+
+
+            <mat-form-field class="field" appearance="fill">
+              <mat-label>Loginname</mat-label>
+              <input matInput name="Loginname" placeholder="Ex. Harry">
+
+            </mat-form-field>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <!-- Submit Reset btn -->
+              <div class="loginbtn">
+                <button class="formbtn" type="submit" mat-raised-button color="primary" >Login</button>
+              </div>
+    
+              <!-- <button class="formbtn" type="reset" mat-raised-button color="warn" >Clear</button> -->
+              <!-- Submit Reset btn -->
+
+            
+        </form>
+    </div>
+</div>
