@@ -1,0 +1,17 @@
+.card{
+    text-align: center;
+    width:30%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-top-left-radius: 1%;
+}
+.container{
+    margin-top: 10px;
+}
+.card h1{
+    text-align: center;
+}
+.viewad-card{
+    
+}
