@@ -14,6 +14,8 @@ import { NewdealerformComponent } from './user_components/newdealerform/newdeale
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import {MatInputModule} from '@angular/material/input';
     AdvertisementformComponent,
     NewdealerformComponent,
     HomeComponent,
+    ViewadvertiseComponent,
     
   ],
   imports: [
@@ -34,6 +37,7 @@ import {MatInputModule} from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    FormsModule,
     
 
   ],
