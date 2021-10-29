@@ -4,7 +4,30 @@
         <h1>Register Here..</h1>
         <form action="#">
 
+          <!-- LoginName Field -->
+          <mat-form-field class="field" appearance="fill">
+            <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
+          <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
+            <mat-label>Username</mat-label>
+          <input matInput #username minlength="5" maxlength="10" name="Username" >
+          <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
+          </mat-form-field>
+          <!-- Username Field -->
 
+
+
+
+          <!-- LoginName Field -->
+          <mat-form-field class="field" appearance="fill">
+            <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
+          <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
+            <mat-label>Loginname</mat-label>
+          <input matInput #loginname minlength="5" maxlength="10" Loginname name="Loginname" >
+          <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
+          </mat-form-field>
+          <!-- LoginName Field -->
+
+            <!-- Password field -->
             <mat-form-field class="field" appearance="outline" color="accent">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"  matInput #password minlength="5" maxlength="10" placeholder="Password" value="">
@@ -14,8 +37,10 @@
                 <mat-hint>*Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
                 <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
               </mat-form-field>
+               <!-- Password field -->
 
 
+                <!-- Telephone field -->
               <mat-form-field class="field" appearance="fill">
                 <mat-label>Telephone</mat-label>
                 <span matPrefix>+91&nbsp;</span>
@@ -24,6 +49,17 @@
                 <mat-hint> Enter a 10 digit Phone Number</mat-hint>
                 <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
               </mat-form-field>
+              <!-- Telephone field -->
+
+
+              <!-- Submit reset btns -->
+             
+              <div class="formbtns">
+                <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
+		  <button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
+              </div> 
+              
+              <!-- Submit reset btns -->
 
             
         </form>

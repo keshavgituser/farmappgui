@@ -1,8 +1,7 @@
-.navbar-btn{
-   
-}
+
 .navbar{
-    height: 9%;
+    height: 10%;
+    background-color: #E8E1D9;
 }
 .example-spacer {
     flex: 1 1 auto;
