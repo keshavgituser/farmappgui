@@ -10,7 +10,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { NewdealerformComponent } from './user_components/newdealerform/newdealerform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -22,7 +21,6 @@ import { ViewadvertiseComponent } from './adservice_components/viewadvertise/vie
     AppComponent,
     NavbarComponent,
     AdvertisementformComponent,
-    NewdealerformComponent,
     HomeComponent,
     ViewadvertiseComponent,
     
