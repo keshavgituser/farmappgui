@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-viewadvertise',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewadvertiseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
+  updatebtnClick()
+  {
+    this.snack.open("Clicked on Update btn","Cancel");
+  }
+
+  deletebtnClick()
+  {
+    this.snack.open("Clicked on Delete btn","Cancel");
+  }
 }

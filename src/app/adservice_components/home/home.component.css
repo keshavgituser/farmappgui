@@ -3,3 +3,17 @@
     margin-top: 30px;
 
 }
+.tablecard{
+    text-align: center;
+    /* width:30%; */
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-top-left-radius: 1%;
+}
+.linkbtn{
+    margin:5px;
+    margin-top: 20px;
+
+}
+    
