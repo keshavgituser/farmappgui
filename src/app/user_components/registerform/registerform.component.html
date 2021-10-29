@@ -7,18 +7,22 @@
 
             <mat-form-field class="field" appearance="outline" color="accent">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
+                <input matInput [type]="hide ? 'password' : 'text'"  matInput #password minlength="5" maxlength="10" placeholder="Password" value="">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-hint>*Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
+                <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
               </mat-form-field>
 
 
-              <mat-form-field class="field-tel" appearance="fill">
+              <mat-form-field class="field" appearance="fill">
                 <mat-label>Telephone</mat-label>
                 <span matPrefix>+91&nbsp;</span>
-                <input type="tel" matInput placeholder="555-555-1234">
-                <mat-icon matSuffix>mode_edit</mat-icon>
+                <input type="tel" matInput placeholder="00000-00000" #phone>
+                <mat-icon matSuffix>phone</mat-icon> 
+                <mat-hint> Enter a 10 digit Phone Number</mat-hint>
+                <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
               </mat-form-field>
 
             

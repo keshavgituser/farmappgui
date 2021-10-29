@@ -1,6 +1,6 @@
 .card{
     text-align: center;
-    width:30%;
+    width:40%;
     margin: auto;
     background-color: whitesmoke;
     padding: 20px;
@@ -9,6 +9,7 @@
 .container{
     margin-top: 10px;
 }
-.field-tel{
-    width: 61%;
+.field{
+    width:90%;
+    height:5%;
 }
