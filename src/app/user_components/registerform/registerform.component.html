@@ -2,14 +2,16 @@
     <div class="card">
         <!-- (ngSubmit)="doSubmitForm()" -->
         <h1>Register Here..</h1>
-        <form action="#">
+        <form (ngSubmit)="submitForm()" >
 
-          <!-- LoginName Field -->
+          <!-- Username Field -->
           <mat-form-field class="field" appearance="fill">
             <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
             <mat-label>Username</mat-label>
-          <input matInput #username minlength="5" maxlength="10" name="Username" >
+
+          <input matInput [(ngModel)]="registerForm.Username" #username minlength="5" maxlength="10" name="Username" required>
+
           <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
           </mat-form-field>
           <!-- Username Field -->
@@ -22,7 +24,7 @@
             <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
             <mat-label>Loginname</mat-label>
-          <input matInput #loginname minlength="5" maxlength="10" Loginname name="Loginname" >
+          <input matInput [(ngModel)]="registerForm.Loginname" #loginname minlength="5" maxlength="10" name="Loginname" required>
           <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
           </mat-form-field>
           <!-- LoginName Field -->
@@ -30,7 +32,7 @@
             <!-- Password field -->
             <mat-form-field class="field" appearance="outline" color="accent">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'"  matInput #password minlength="5" maxlength="10" placeholder="Password" value="">
+                <input matInput [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" #password minlength="5" maxlength="10" required placeholder="Password" value="">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
@@ -42,9 +44,10 @@
 
                 <!-- Telephone field -->
               <mat-form-field class="field" appearance="fill">
-                <mat-label>Telephone</mat-label>
+               
                 <span matPrefix>+91&nbsp;</span>
-                <input type="tel" matInput placeholder="00000-00000" #phone>
+                <mat-label>Telephone</mat-label>
+                <input matInput [(ngModel)]="registerForm.phoneno"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required>
                 <mat-icon matSuffix>phone</mat-icon> 
                 <mat-hint> Enter a 10 digit Phone Number</mat-hint>
                 <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
@@ -56,14 +59,14 @@
              
               <div class="formbtns">
                 <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
-		  <button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
+		            <button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
               </div> 
               
               <!-- Submit reset btns -->
-
-            
         </form>
+        {{registerForm|json}}
     </div>
+    
 </div>
 
 
