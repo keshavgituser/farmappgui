@@ -1,25 +1,26 @@
-.field{
-    width:90%;
-    height:5%;
-}
 .card{
     text-align: center;
-    width:30%;
+    width:40%;
     margin: auto;
-    background-color: #FAEEE0;
+    background-color: whitesmoke;
     padding: 20px;
     border-top-left-radius: 1%;
 }
 .container{
-    margin-top: 10px;
-}
-.card h1{
     text-align: center;
+    margin-top: 10px;
+    height: 80%;
+    width: 50%;
 }
-.formbtn{
+.loginbtn{
+    text-align: center;
     margin:5px;
-    margin-top: 20px;
+    margin-top: 5px;
 
+}
+.field{
+    width:90%;
+    height:5%;
 }
 .mat-icons.color_green { color: #4E9F3D; }
 

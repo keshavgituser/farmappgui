@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './adservice_components/navbar/navbar.component';
@@ -15,6 +14,7 @@ import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
@@ -22,6 +22,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { RegisterformComponent } from './user_components/registerform/registerform.component';
+import { LoginformComponent } from './user_components/loginform/loginform.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HomeComponent,
     ViewadvertiseComponent,
     ViewalladsComponent,
+    RegisterformComponent,
+    LoginformComponent,
     
   ],
   imports: [

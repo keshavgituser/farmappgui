@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
+import { LoginformComponent } from './user_components/loginform/loginform.component';
+import { RegisterformComponent } from './user_components/registerform/registerform.component';
+
 
 
 const routes: Routes = [
@@ -21,7 +24,22 @@ const routes: Routes = [
     path:'',
     component:HomeComponent,
     pathMatch:"full"
+  },
+  {
+    //to do add `${userrole}` before the 
+    path:"register",
+    component:RegisterformComponent,
+    pathMatch:"full"
+
+  },
+  {
+    
+    path:"login",
+    component:LoginformComponent,
+    pathMatch:"full"
+
   }
+
 ];
 
 @NgModule({
