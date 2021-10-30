@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
@@ -24,6 +24,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
+import { RegisterService } from './services/register.service';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { LoginformComponent } from './user_components/loginform/loginform.compon
     
 
   ],
-  providers: [MatSnackBar],
+  providers: [MatSnackBar,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
