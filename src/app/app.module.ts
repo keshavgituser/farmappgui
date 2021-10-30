@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -54,7 +54,8 @@ import { LoginformComponent } from './user_components/loginform/loginform.compon
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    
     
 
   ],
