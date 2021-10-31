@@ -17,9 +17,10 @@ export class LoginService {
 
 
 
-  loginUser(token:any)
+  loginUser(token:any,role:any)
   {
     localStorage.setItem("token",token);
+    localStorage.setItem("role",role);
     return true;
   }
 
@@ -27,6 +28,7 @@ export class LoginService {
   isLoggedin()
   {
     let token=localStorage.getItem("token");
+    let role=localStorage.getItem("role");
     if(token==undefined || token==='' || token==null)
     {
       return false;
@@ -39,6 +41,7 @@ export class LoginService {
   //to logout user
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     return true; 
   }
 
