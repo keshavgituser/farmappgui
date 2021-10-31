@@ -38,6 +38,51 @@ export class LoginService {
     }
   }
 
+  isLoggedinasAdmin()
+  {
+    let token=localStorage.getItem("token");
+    let role=localStorage.getItem("role");
+    console.log(role);
+    
+    if(token==undefined || token==='' || token==null && role!="[ROLE_ADMIN]")
+    {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  isLoggedinasDealer()
+  {
+    let token=localStorage.getItem("token");
+    let role=localStorage.getItem("role");
+    if(token==undefined || token==='' || token==null && role=="[ROLE_DEALER]")
+    {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  isLoggedinasFarme()
+  {
+    let token=localStorage.getItem("token");
+    let role=localStorage.getItem("role");
+    if(token==undefined || token==='' || token==null && role=="[ROLE_FARMER]")
+    {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+
+
+
+
   //to logout user
   logout(){
     localStorage.removeItem('token');

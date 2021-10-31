@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
+import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
@@ -59,6 +60,12 @@ const routes: Routes = [
     path:"farmerdashboard",
     component:FarmerdashboardComponent,
     canActivate:[AuthGuard]
+
+  },
+  {
+    path:"aboutus",
+    component:AboutusComponent,
+    pathMatch:"full"
 
   }
 

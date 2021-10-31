@@ -1,23 +1,20 @@
-<!-- <mat-toolbar class="navbar">
-    <button routerLink='' mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-     <mat-icon>home</mat-icon>
-   </button>
-   <span>Farmer Assistant UI</span>
-   <span class="example-spacer"></span>
-   <a class="navbar-btn" routerLink="register" mat-button  color="white" appearance="outline">Register</a>
-  <button class="navbar-btn" routerLink="login" mat-button  color="secondary">Login</button>
- </mat-toolbar> -->
+<mat-toolbar class="navbar">
+   
+  
+  <!-- home icon -->
+<!-- I will show home icon if user is logged in as admin else hide 
+    *ngIf="loggedinasadmin" by using this code on btn and icon both
+-->
+<button  routerLink=''  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon >home</mat-icon>
+  </button> 
 
- <mat-toolbar class="navbar">
-  <button routerLink='' mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <!-- <mat-icon>menu</mat-icon> -->
-    <mat-icon>home</mat-icon>
-  </button>
+  <!-- Span text -->
   <span>My App</span>
   <span class="example-spacer"></span>
 
   <!-- register -->
-  <mat-label *ngIf="!loggedin">Register</mat-label>
+  <mat-label class="label" *ngIf="!loggedin">Register</mat-label>
   <a class="navbar-btn" *ngIf="!loggedin" routerLink="register" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
     <!-- <mat-icon>perm_identity</mat-icon> -->
     
@@ -27,21 +24,34 @@
   </a>
 
   <!-- login -->
-  <mat-label *ngIf="!loggedin">Login</mat-label>
+  <mat-label class="label" *ngIf="!loggedin">Login</mat-label>
   <a class="navbar-btn" *ngIf="!loggedin" routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>vpn_key</mat-icon>
     
   </a>
 
+  <!-- about us -->
+  <mat-label class="label" *ngIf="!loggedin">About us</mat-label>
+  <a class="navbar-btn" *ngIf="!loggedin" routerLink="aboutus" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
+    <!-- <mat-icon>perm_identity</mat-icon> -->
+    
+    
+    <mat-icon>visibility</mat-icon>
+    
+  </a>
+  <!-- about us -->
+
+
+
   <!-- loggedinusername -->
-  <mat-label [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">User</mat-label>
+  <mat-label class="label" [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">User</mat-label>
   <a class="navbar-btn" *ngIf="loggedin" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>perm_identity</mat-icon>
     
   </a>
 
   <!-- logout -->
-  <mat-label *ngIf="loggedin">Logout</mat-label>
+  <mat-label class="label" *ngIf="loggedin">Logout</mat-label>
   <a class="navbar-btn" (click)="logoutUser()" *ngIf="loggedin"  mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     
     <mat-icon>input</mat-icon>

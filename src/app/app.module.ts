@@ -28,6 +28,7 @@ import { RegisterService } from './services/register.service';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
+import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FarmerdashboardComponent } from './user_components/farmerdashboard/farm
     AdmindashboardComponent,
     DealerdashboardComponent,
     FarmerdashboardComponent,
+    AboutusComponent,
     
   ],
   imports: [
