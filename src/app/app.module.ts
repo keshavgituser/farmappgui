@@ -12,10 +12,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
@@ -24,6 +24,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
+import { RegisterService } from './services/register.service';
+import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
+import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
+import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 
 
 @NgModule({
@@ -36,6 +40,9 @@ import { LoginformComponent } from './user_components/loginform/loginform.compon
     ViewalladsComponent,
     RegisterformComponent,
     LoginformComponent,
+    AdmindashboardComponent,
+    DealerdashboardComponent,
+    FarmerdashboardComponent,
     
   ],
   imports: [
@@ -54,11 +61,12 @@ import { LoginformComponent } from './user_components/loginform/loginform.compon
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    
     
 
   ],
-  providers: [MatSnackBar],
+  providers: [MatSnackBar,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

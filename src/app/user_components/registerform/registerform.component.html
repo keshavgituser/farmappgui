@@ -2,15 +2,18 @@
     <div class="card">
         <!-- (ngSubmit)="doSubmitForm()" -->
         <h1>Register Here..</h1>
-        <form action="#">
+        <form (ngSubmit)="submitForm()" >
 
-          <!-- LoginName Field -->
+          <!-- Username Field -->
           <mat-form-field class="field" appearance="fill">
             <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
             <mat-label>Username</mat-label>
-          <input matInput #username minlength="5" maxlength="10" name="Username" >
+
+          <input matInput [(ngModel)]="registerForm.userName" #username minlength="5" maxlength="10" name="Username" required>
+          <mat-hint>Username should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
           <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
+          
           </mat-form-field>
           <!-- Username Field -->
 
@@ -22,32 +25,44 @@
             <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
             <mat-label>Loginname</mat-label>
-          <input matInput #loginname minlength="5" maxlength="10" Loginname name="Loginname" >
+          <input matInput [(ngModel)]="registerForm.loginName" #loginname minlength="5" maxlength="10" name="Loginname" required>
+          <mat-hint>Login should contain 5-10 characters a-z,A-Z</mat-hint>
           <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
+         
           </mat-form-field>
           <!-- LoginName Field -->
 
             <!-- Password field -->
             <mat-form-field class="field" appearance="outline" color="accent">
+              <mat-icon class="mat-icons color_green" matPrefix *ngIf="password.value.length>4">sentiment_very_satisfied</mat-icon>
+          <mat-icon class="mat-icons color_red" matPrefix *ngIf="password.value.length<5">sentiment_very_dissatisfied</mat-icon>
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'"  matInput #password minlength="5" maxlength="10" placeholder="Password" value="">
+                <input matInput [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
+                 #password minlength="5" maxlength="15" 
+                  required placeholder="Password" value=""
+                  >
+
+
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-hint>*Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
+                <mat-hint>Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
                 <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
+                
               </mat-form-field>
                <!-- Password field -->
 
 
                 <!-- Telephone field -->
               <mat-form-field class="field" appearance="fill">
-                <mat-label>Telephone</mat-label>
+               
                 <span matPrefix>+91&nbsp;</span>
-                <input type="tel" matInput placeholder="00000-00000" #phone>
+                <mat-label>Telephone</mat-label>
+                <input matInput [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
                 <mat-icon matSuffix>phone</mat-icon> 
                 <mat-hint> Enter a 10 digit Phone Number</mat-hint>
                 <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
+                
               </mat-form-field>
               <!-- Telephone field -->
 
@@ -55,15 +70,38 @@
               <!-- Submit reset btns -->
              
               <div class="formbtns">
-                <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
-		  <button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
+                
+                <!-- || progressbar.value>=100 -->
+                <!-- progressbar.value<100 -->
+                  
+                  <div class="submitbtn" *ngIf="
+                  (username.value.length>4 &&
+                loginname.value.length>4 &&
+                password.value.length>5 &&
+                phone.value.length==10);
+                then enablesubmit 
+                else disablesubmit
+                 "></div>
+
+                <ng-template #disablesubmit>
+                  <mat-progress-bar #progress  mode="buffer"  color="accent"></mat-progress-bar>
+                  <button class="formbtn"  disabled type="submit" mat-raised-button color="accent" >Register</button>
+                  
+                </ng-template>
+
+                <ng-template  #enablesubmit >
+                  <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
+                </ng-template>
+
+                  
+		            <button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
               </div> 
               
               <!-- Submit reset btns -->
-
-            
         </form>
+        <!-- {{registerForm|json}} -->
     </div>
+    
 </div>
 
 
@@ -75,13 +113,7 @@
     pwd     pwd
     login   login
     phone
-
- -->
-
-
-
-<!-- 
-    /**
+/**
 	 * @param userId
 	 * @param userName
 	 * @param loginName
