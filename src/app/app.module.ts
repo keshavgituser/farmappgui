@@ -25,6 +25,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
 import { RegisterService } from './services/register.service';
+import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
+import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
+import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { RegisterService } from './services/register.service';
     ViewalladsComponent,
     RegisterformComponent,
     LoginformComponent,
+    AdmindashboardComponent,
+    DealerdashboardComponent,
+    FarmerdashboardComponent,
     
   ],
   imports: [

@@ -1,20 +1,20 @@
 .card{
     text-align: center;
-    width:40%;
+    width:25%;
+    height: 50%;
     margin: auto;
     background-color: whitesmoke;
     padding: 20px;
     border-top-left-radius: 1%;
 }
 .container{
+    position: inherit;
+    margin-top: 20px;
     text-align: center;
-    margin-top: 10px;
-    height: 80%;
-    width: 50%;
 }
-.loginbtn{
+.formbtn{
     text-align: center;
-    margin:5px;
+    margin:10px;
     margin-top: 5px;
 
 }
@@ -24,5 +24,12 @@
 }
 .mat-icons.color_green { color: #4E9F3D; }
 
-
 .mat-icons.color_red { color: #E02401; }
+
+.img-fluid{
+    width: 90px;
+    height:90px;
+}
+.img-container{
+    text-align: center;
+}
