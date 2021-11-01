@@ -16,12 +16,15 @@ export class LoginformComponent implements OnInit {
     password:''
   }
 
+
+  loggedinusername="";
   constructor(private loginservice:LoginService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
   hide = true;
 
+  
   SubmitLoginForm(){
     // this.snack.open("Form Submitted","Ok");
     if((this.credentials.username!='') &&
@@ -39,6 +42,7 @@ export class LoginformComponent implements OnInit {
           (response:any)=>{
             //success
             console.log("Success",response);
+            //setting user loginame  after sucessfull login
             this.loginservice.loginUser(response.jwt,response.userrole);
 
             // Check the role and Redirect on basis of role
@@ -66,6 +70,7 @@ export class LoginformComponent implements OnInit {
 
           },
           (error:any)=>{
+            this.snack.open("Invalid Credentials","Ok");
             console.log("error",error);
             
             //error
@@ -74,8 +79,7 @@ export class LoginformComponent implements OnInit {
         
     }
     else{
-      // console.log("Empty fields");
-      
+       //console.log("Empty fields");
     }
     
   }

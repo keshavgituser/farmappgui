@@ -29,6 +29,9 @@ import { AdmindashboardComponent } from './user_components/admindashboard/admind
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
+import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
+import { LoginService } from './services/login.service';
+import { ComplaintService } from './services/complaint.service';
 
 
 @NgModule({
@@ -45,6 +48,7 @@ import { AboutusComponent } from './complaint_components/aboutus/aboutus.compone
     DealerdashboardComponent,
     FarmerdashboardComponent,
     AboutusComponent,
+    AddcomplaintComponent,
     
   ],
   imports: [
@@ -68,7 +72,7 @@ import { AboutusComponent } from './complaint_components/aboutus/aboutus.compone
     
 
   ],
-  providers: [MatSnackBar,RegisterService],
+  providers: [MatSnackBar,RegisterService,LoginService,ComplaintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

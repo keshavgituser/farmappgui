@@ -12,6 +12,8 @@ export class LoginService {
 
   generateToken(credentials:any){
 
+
+    localStorage.setItem("loggedinusername",credentials.username);
     return this.http.post(`${this.baseUrl}/login`,credentials);
   }
 

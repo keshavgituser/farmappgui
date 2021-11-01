@@ -34,9 +34,9 @@
               <!-- Submit Reset btn -->
               <div class="loginbtn">
                 <!-- "loginname.value.length<5 || pwd.value.length<5" -->
-                <button *ngIf="loginname.value.length<1 || pwd.value.length<1" class="formbtn" type="submit" mat-raised-button  disabled>Login</button>
-                <button *ngIf="loginname.value.length>0 && pwd.value.length>0" class="formbtn" type="submit" mat-raised-button color="accent" >Login</button>
-                <button class="formbtn" type="reset" mat-stroked-button>Reset</button>
+                <button *ngIf="loginname.value.length<1 || pwd.value.length<1" class="formbtn" name="dsubmitbtn" type="submit" mat-raised-button  disabled>Login</button>
+                <button *ngIf="loginname.value.length>0 && pwd.value.length>0" class="formbtn" name="submitbtn" type="submit" mat-raised-button color="accent" >Login</button>
+                <button class="formbtn" type="reset" name="resetbtn" mat-stroked-button>Reset</button>
               </div>
     
               <!-- <button class="formbtn" type="reset" mat-raised-button color="warn" >Clear</button> -->

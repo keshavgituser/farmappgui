@@ -4,6 +4,7 @@ import { AdvertisementformComponent } from './adservice_components/advertisement
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
+import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path:"createad",
     component:AdvertisementformComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate:[AuthGuard]
   },
   {
     path:"viewad",
@@ -67,6 +69,12 @@ const routes: Routes = [
     component:AboutusComponent,
     pathMatch:"full"
 
+  },
+  {
+    path:"addcomplaint",
+    component:AddcomplaintComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
   }
 
 

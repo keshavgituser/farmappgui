@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { LoginformComponent } from './../../user_components/loginform/loginform.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class NavbarComponent implements OnInit {
 
   public loggedin=false;
-  public loggedinusername="User";
+  public loggedinusername="";
 
   // public loggedinasadmin=false;
   constructor(private loginservice:LoginService) { }

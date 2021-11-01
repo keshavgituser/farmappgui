@@ -20,10 +20,10 @@
       <mat-form-field class="field" appearance="outline" color="accent">
           <mat-label>Complaint Description</mat-label>
           <textarea matInput minlength="5" maxlength="50" required #complaintdesc placeholder="Complaint description" 
-          name="complainDescription" [(ngModel)]="comp_data.complainDescription"></textarea>
-          <mat-icon class="mat-icons color_green" matSuffix *ngIf="complaintdesc.value.length>0">sentiment_very_satisfied</mat-icon>
+          name="compDescription" [(ngModel)]="comp_data.complainDescription"></textarea>
+          <mat-icon class="mat-icons color_red" matSuffix *ngIf="complaintdesc.value.length>0">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matSuffix *ngIf="complaintdesc.value.length<1">sentiment_very_dissatisfied</mat-icon>
-          <mat-hint align="end">{{complaintdesc.value.length}} /100 </mat-hint>
+          <mat-hint align="end">{{complaintdesc.value.length}}/100 </mat-hint>
       </mat-form-field>
 
         <button class="formbtn" type="submit" mat-raised-button color="accent">Submit</button>
