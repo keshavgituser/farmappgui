@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
@@ -32,6 +32,9 @@ import { AboutusComponent } from './complaint_components/aboutus/aboutus.compone
 import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
 import { LoginService } from './services/login.service';
 import { ComplaintService } from './services/complaint.service';
+import { AuthinterceptorService } from './services/authinterceptor.service';
+import { RegistertabComponent } from './user_components/registertab/registertab.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -49,10 +52,11 @@ import { ComplaintService } from './services/complaint.service';
     FarmerdashboardComponent,
     AboutusComponent,
     AddcomplaintComponent,
+    RegistertabComponent,
     
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -62,17 +66,19 @@ import { ComplaintService } from './services/complaint.service';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    HttpClientModule,
     MatCardModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    
-    
+    HttpClientModule,    
+    MatTabsModule
 
   ],
-  providers: [MatSnackBar,RegisterService,LoginService,ComplaintService],
+  providers: 
+  [MatSnackBar,RegisterService,LoginService,ComplaintService,[
+    {provide: HTTP_INTERCEPTORS,useClass:AuthinterceptorService,multi:true }]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

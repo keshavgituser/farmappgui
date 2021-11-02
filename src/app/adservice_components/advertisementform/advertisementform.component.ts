@@ -9,10 +9,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AdvertisementformComponent implements OnInit {
 
-  createdBy="Username";
+  username=localStorage.getItem("loggedinusername");;
 
   ad_data={  
-    createdby:this.createdBy,
+    createdby:this.username,
     title:"",
     adId:"",
     adStock:"",
@@ -29,8 +29,8 @@ export class AdvertisementformComponent implements OnInit {
 
   doSubmitForm()
   {
-    console.log("Try to Submit form");
-    console.log("DAta ",this.ad_data);
+    console.log("Trying to create advertisement");
+    console.log("Data ",this.ad_data);
 
     if(this.ad_data.createdby==''||this.ad_data.title==''||
     this.ad_data.adStock==''||this.ad_data.adId==''||
@@ -39,6 +39,9 @@ export class AdvertisementformComponent implements OnInit {
       this.snak.open("Fields Cannot be Empty","OK");
       
     }
+
+    
+
 
  
     

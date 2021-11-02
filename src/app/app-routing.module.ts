@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
@@ -11,6 +11,7 @@ import { DealerdashboardComponent } from './user_components/dealerdashboard/deal
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
+import { RegistertabComponent } from './user_components/registertab/registertab.component';
 
 
 
@@ -75,6 +76,11 @@ const routes: Routes = [
     component:AddcomplaintComponent,
     pathMatch:"full",
     canActivate:[AuthGuard]
+  },
+  {
+    path:"registertab",
+    component:RegistertabComponent,
+    pathMatch:"full"
   }
 
 

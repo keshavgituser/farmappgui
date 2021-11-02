@@ -1,1 +1,6 @@
-<p>admindashboard works!</p>
+<div class="container">
+    <div class="inside_container">
+        <h1 *ngIf="user">Welcome to Admin Dashboard{{user.loginName}}</h1> 
+        <button (click)="getUserDetails()"  mat-raised-button>Get Details</button>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.example-button-toggle-label {
+    display: inline-block;
+    margin: 10px;
+  }
+.container{
+    text-align: center;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+}
+.heading{
+    text-align:center;
+    margin-top: 1%;
+}
+.tabgroup{
+    text-align: center;
+   
+}
+
+
+.card{
+    text-align: center;
+    width:35%;
+    margin: auto;
+    background-color: whitesmoke; 
+    /* background-color: #FFF3E4; */
+    padding: 20px;
+     
+    /* border-top-left-radius: 7%;
+    border-top-right-radius: 7%;
+    border-bottom-left-radius: 7%;
+    border-bottom-left-radius: 7%;  */
+}
+.container{
+    margin-top: 10px; 
+}
+.field{
+    width:70%;
+    height:5%;
+    margin: 1px;
+}
+.formbtns{
+    margin:10px;
+    margin-top: 20px;
+
+}
+.formbtn{
+    margin:10px;
+    margin-top: 20px;
+}
+.mat-icons.color_green { color: #4E9F3D; }
+
+
+.mat-icons.color_red { color: #E02401; }
+
+
+.formcontainer{
+
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 15%;
+    width: 75%;
+    
+}
