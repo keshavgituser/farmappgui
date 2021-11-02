@@ -10,7 +10,7 @@ import { LoginformComponent } from './../../user_components/loginform/loginform.
 export class NavbarComponent implements OnInit {
 
   public loggedin=false;
-  public loggedinusername="";
+  public loggedinusername=localStorage.getItem("loggedinusername");;
 
   // public loggedinasadmin=false;
   constructor(private loginservice:LoginService) { }
