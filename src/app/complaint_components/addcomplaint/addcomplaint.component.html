@@ -1,0 +1,33 @@
+<div class="container">
+
+    <mat-card class="card">
+    <form (ngSubmit)="doSubmitForm()">
+      <h1>Complaint Form</h1>
+    
+      <!-- <mat-form-field class="field" appearance="outline" color="accent">
+        <mat-label>Complaint Id</mat-label>
+        <input matInput name="createdId" [(ngModel)]="comp_data.compId">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field> -->
+
+      <mat-form-field class="field" appearance="outline" color="accent">
+        <mat-label>Created By</mat-label>
+        <input matInput disabled name="createdBy" [(ngModel)]="comp_data.createdBy">
+        <!-- <input matInput name="createdBy" [(ngModel)]="createdBy"> -->
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="outline" color="accent">
+          <mat-label>Complaint Description</mat-label>
+          <textarea matInput minlength="5" maxlength="50" required #complaintdesc placeholder="Complaint description" 
+          name="compDescription" [(ngModel)]="comp_data.complainDescription"></textarea>
+          <mat-icon class="mat-icons color_red" matSuffix *ngIf="complaintdesc.value.length>0">sentiment_very_satisfied</mat-icon>
+          <mat-icon class="mat-icons color_red" matSuffix *ngIf="complaintdesc.value.length<1">sentiment_very_dissatisfied</mat-icon>
+          <mat-hint align="end">{{complaintdesc.value.length}}/100 </mat-hint>
+      </mat-form-field>
+
+        <button class="formbtn" type="submit" mat-raised-button color="accent">Submit</button>
+        <button class="formbtn" type="reset" mat-raised-button color="accent">Reset</button>
+      </form>
+  </mat-card>
+</div>

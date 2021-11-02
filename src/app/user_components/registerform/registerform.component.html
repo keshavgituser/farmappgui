@@ -40,9 +40,8 @@
                 <input matInput [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
                  #password minlength="5" maxlength="15" 
                   required placeholder="Password" value=""
+                  ng-pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
                   >
-
-
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
@@ -58,7 +57,7 @@
                
                 <span matPrefix>+91&nbsp;</span>
                 <mat-label>Telephone</mat-label>
-                <input matInput [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
+                <input matInput  [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
                 <mat-icon matSuffix>phone</mat-icon> 
                 <mat-hint> Enter a 10 digit Phone Number</mat-hint>
                 <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>

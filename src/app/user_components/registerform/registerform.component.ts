@@ -14,13 +14,13 @@ export class RegisterformComponent implements OnInit {
   private urole:string="dealer";
 
   
-
+  // public urole:any;
   registerForm={
     
     userName:'',
     loginName:'',
     pwd:'',
-    phone:'',
+    phone:null,
     role:`${this.urole}`,
    
   }
@@ -39,6 +39,8 @@ export class RegisterformComponent implements OnInit {
   submitForm(){
     console.log("Form submitted");
     console.log("DAta ",this.registerForm);
+
+    if(this.registerForm.phone)
 
     
     

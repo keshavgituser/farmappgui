@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
@@ -28,6 +28,13 @@ import { RegisterService } from './services/register.service';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
+import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
+import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
+import { LoginService } from './services/login.service';
+import { ComplaintService } from './services/complaint.service';
+import { AuthinterceptorService } from './services/authinterceptor.service';
+import { RegistertabComponent } from './user_components/registertab/registertab.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -43,10 +50,13 @@ import { FarmerdashboardComponent } from './user_components/farmerdashboard/farm
     AdmindashboardComponent,
     DealerdashboardComponent,
     FarmerdashboardComponent,
+    AboutusComponent,
+    AddcomplaintComponent,
+    RegistertabComponent,
     
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -56,17 +66,19 @@ import { FarmerdashboardComponent } from './user_components/farmerdashboard/farm
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    HttpClientModule,
     MatCardModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
     MatProgressBarModule,
-    
-    
+    HttpClientModule,    
+    MatTabsModule
 
   ],
-  providers: [MatSnackBar,RegisterService],
+  providers: 
+  [MatSnackBar,RegisterService,LoginService,ComplaintService,[
+    {provide: HTTP_INTERCEPTORS,useClass:AuthinterceptorService,multi:true }]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

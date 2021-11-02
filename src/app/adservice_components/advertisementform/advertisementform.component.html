@@ -7,7 +7,7 @@
 
 		<mat-form-field class="field" appearance="fill">
 			<mat-label>Created By</mat-label>
-			<input matInput disabled name="createdBy" [(ngModel)]="createdBy">
+			<input matInput disabled name="createdBy" [(ngModel)]="ad_data.createdby">
 		  </mat-form-field>
 		  <!-- Title form field -->
 		<mat-form-field class="field"  appearance="outline" color="accent">
@@ -45,10 +45,40 @@
 			<mat-hint align="end">{{offerdesc.value.length}}/100 </mat-hint>
 		  </mat-form-field>
 		  
-		  <button class="formbtn" type="submit" mat-raised-button color="accent" >Create</button>
-		  <button class="formbtn" type="reset" mat-raised-button color="" >Clear</button>
+
+
+		  <div class="formbtns">
+                
+			<!-- || progressbar.value>=100 -->
+			<!-- progressbar.value<100 -->
+			  
+			  <div class="submitbtn" *ngIf="
+			  (title.value.length>5 && 
+			  adidentity.value.length>=3 &&
+			  adstock.value.length>0 &&
+			  offerdesc.value.length>0
+
+			  );
+			then enablecreate 
+			else disablecreate
+			 "></div>
+
+			<ng-template #disablecreate>
+			  <mat-progress-bar #progress  mode="buffer"  color="accent"></mat-progress-bar>
+			  <button class="formbtn"  disabled type="submit" mat-raised-button color="accent" >Create</button>
+			  
+			</ng-template>
+
+			<ng-template  #enablecreate >
+			  <button class="formbtn" type="submit" mat-raised-button color="accent" >Create</button>
+			</ng-template>
+
+			  
+				<button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
+		  </div> 
+		  
 		</form>
-		{{ad_data|json}}
+		<!-- {{ad_data|json}} -->
 	</div>
 	
 </div>

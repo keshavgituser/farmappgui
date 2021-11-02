@@ -1,13 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
+import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
+import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
+import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
+import { RegistertabComponent } from './user_components/registertab/registertab.component';
 
 
 
@@ -16,7 +20,8 @@ const routes: Routes = [
   {
     path:"createad",
     component:AdvertisementformComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate:[AuthGuard]
   },
   {
     path:"viewad",
@@ -45,17 +50,37 @@ const routes: Routes = [
   {
     path:"admindashboard",
     component:AdmindashboardComponent,
+    canActivate:[AuthGuard]
 
   },
   {
     path:"dealerdashboard",
     component:DealerdashboardComponent,
+    canActivate:[AuthGuard]
 
   },
   {
     path:"farmerdashboard",
     component:FarmerdashboardComponent,
+    canActivate:[AuthGuard]
 
+  },
+  {
+    path:"aboutus",
+    component:AboutusComponent,
+    pathMatch:"full"
+
+  },
+  {
+    path:"addcomplaint",
+    component:AddcomplaintComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
+  },
+  {
+    path:"registertab",
+    component:RegistertabComponent,
+    pathMatch:"full"
   }
 
 

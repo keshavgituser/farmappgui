@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from './../../services/login.service';
 
+
 @Component({
   selector: 'app-loginform',
   templateUrl: './loginform.component.html',
@@ -15,12 +16,15 @@ export class LoginformComponent implements OnInit {
     password:''
   }
 
+
+  loggedinusername="";
   constructor(private loginservice:LoginService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
   hide = true;
 
+  
   SubmitLoginForm(){
     // this.snack.open("Form Submitted","Ok");
     if((this.credentials.username!='') &&
@@ -37,12 +41,36 @@ export class LoginformComponent implements OnInit {
         this.loginservice.generateToken(this.credentials).subscribe(
           (response:any)=>{
             //success
-            console.log("Success",response.jwt);
-            this.loginservice.loginUser(response.jwt);
+            console.log("Success",response);
+            //setting user loginame  after sucessfull login
+            this.loginservice.loginUser(response.jwt,response.userrole);
+
+            // Check the role and Redirect on basis of role
+
+            if(response.userrole=="[ROLE_ADMIN]")
+            {
+              console.log("Redirecting to admin Dashboard");
+              
+              window.location.href="/admindashboard"
+            }
+            else
+            if(response.userrole=="[ROLE_DEALER]")
+            {
+              console.log("Redirecting to Dealer Dashboard");
+              window.location.href="/dealerdashboard"
+            }
+            else
+            if(response.userrole=="[ROLE_FARMER]")
+            {
+              console.log("Redirecting to Farmer Dashboard");
+              window.location.href="/farmerdashboard"
+            }
+
             
 
           },
-          error=>{
+          (error:any)=>{
+            this.snack.open("Invalid Credentials","Ok");
             console.log("error",error);
             
             //error
@@ -51,8 +79,7 @@ export class LoginformComponent implements OnInit {
         
     }
     else{
-      // console.log("Empty fields");
-      
+       //console.log("Empty fields");
     }
     
   }
