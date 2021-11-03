@@ -35,6 +35,7 @@ import { ComplaintService } from './services/complaint.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
 import { RegistertabComponent } from './user_components/registertab/registertab.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FooterComponent } from './adservice_components/footer/footer.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     AboutusComponent,
     AddcomplaintComponent,
     RegistertabComponent,
+    FooterComponent,
     
   ],
   imports: [

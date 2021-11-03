@@ -1,0 +1,17 @@
+.footer{
+    background-color: #2C394B;
+    padding:3%;
+    width:95%;
+    height:auto;
+    position: fixed;
+    color: whitesmoke;
+    bottom:0%;
+    /* margin: 2px; */
+    /* margin-right:1px ; */
+    text-align: center;
+    z-index: 1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
+}

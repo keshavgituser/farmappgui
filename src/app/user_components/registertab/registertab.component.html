@@ -72,10 +72,10 @@
                     <!-- Telephone field -->
                   <mat-form-field class="field" appearance="fill">
                    
-                    <span matPrefix>+91&nbsp;</span>
+                    <span matPrefix class="spantag">+91&nbsp;</span>
                     <mat-label>Telephone</mat-label>
                     <input matInput  [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
-                    <mat-icon matSuffix>phone</mat-icon> 
+                    <mat-icon matSuffix >phone</mat-icon> 
                     <mat-hint> Enter a 10 digit Phone Number</mat-hint>
                     <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
                     
@@ -175,7 +175,7 @@
                     <!-- Telephone field -->
                   <mat-form-field class="field" appearance="fill">
                    
-                    <span matPrefix>+91&nbsp;</span>
+                    <span matPrefix class="spantag">+91&nbsp;</span>
                     <mat-label>Telephone</mat-label>
                     <input matInput  [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
                     <mat-icon matSuffix>phone</mat-icon> 
