@@ -1,4 +1,10 @@
-<div class="container">
+<div class="maincontainer">
+
+  <img class="banner" src="
+  \assets\backgroung.png
+  " alt="banner">
+
+  <div class="container">
 
     <mat-card class="card">
     <form (ngSubmit)="doSubmitForm()">
@@ -28,8 +34,9 @@
       </mat-form-field>
 
         <button class="formbtn" *ngIf="complaintdesc.value.length<=0" type="submit" disabled mat-raised-button color="accent">Submit</button>
-        <button class="formbtn" *ngIf="complaintdesc.value.length>0" type="submit" mat-raised-button color="accent">Submit</button>
-        <button class="formbtn" type="reset" mat-raised-button color="accent">Reset</button>
+        <button class="formbtn" *ngIf="complaintdesc.value.length>0" type="submit" mat-raised-button color="primary">Submit</button>
+        <button class="formbtn" type="reset" mat-stroked-button color="primary">Reset</button>
       </form>
   </mat-card>
+</div>
 </div>

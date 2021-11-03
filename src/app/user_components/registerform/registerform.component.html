@@ -5,7 +5,7 @@
         <form (ngSubmit)="submitForm()" >
 
           <!-- Username Field -->
-          <mat-form-field class="field" appearance="fill">
+          <mat-form-field class="field" appearance="outline" color="warn">
             <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
           <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
             <mat-label>Username</mat-label>
@@ -53,7 +53,7 @@
 
 
                 <!-- Telephone field -->
-              <mat-form-field class="field" appearance="fill">
+              <mat-form-field class="field" appearance="fill" >
                
                 <span matPrefix>+91&nbsp;</span>
                 <mat-label>Telephone</mat-label>

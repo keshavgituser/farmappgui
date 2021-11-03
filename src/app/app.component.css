@@ -1,0 +1,17 @@
+.maincontainer{
+
+    position: relative;
+}
+
+.container{
+    text-align: center;
+    margin-top: 0%;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+    /* background-color:#1F1D36;   */
+    position: absolute;
+    top: -40px;
+    background: none;
+      
+}
