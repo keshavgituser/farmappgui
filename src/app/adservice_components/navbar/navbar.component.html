@@ -13,7 +13,7 @@
 
   <!-- register -->
   <mat-label class="label" *ngIf="!loggedin">Register</mat-label>
-  <a class="navbar-btn" *ngIf="!loggedin" routerLink="registertab" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
+  <a class="navbar-btn" *ngIf="!loggedin"  routerLink="registertab" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
     <!-- <mat-icon>perm_identity</mat-icon> -->
     
     
@@ -23,7 +23,7 @@
 
   <!-- login -->
   <mat-label class="label" *ngIf="!loggedin">Login</mat-label>
-  <a class="navbar-btn" *ngIf="!loggedin" routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <a class="navbar-btn" *ngIf="!loggedin"  routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>vpn_key</mat-icon>
     
   </a>
@@ -44,8 +44,8 @@
 
 
   <!-- loggedinusername -->
-  <mat-label class="label" [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">{{loggedinusername}}</mat-label>
-  <a class="navbar-btn" *ngIf="loggedin" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <mat-label class="label"  [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">{{loggedinusername}}</mat-label>
+  <a class="navbar-btn" *ngIf="loggedin" (click)="userDashboard()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>perm_identity</mat-icon>
     
   </a>

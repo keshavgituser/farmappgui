@@ -1,4 +1,8 @@
-.inner_container{
+.maincontainer{
+    position: relative;
+}
+.inside_container{
+    position: absolute;
     text-align: center;
     width:30%;
     margin: auto;
@@ -7,49 +11,25 @@
     padding: 20px;
     border-top-left-radius: 1%;
 }
-/* .container{
-    margin-top: 10px;
-    text-align: center;
-} */
 
-.maincontainer{
 
-    position: relative;
-    
-}
 
-.container{
-    text-align: center;
-    margin-top: 0%;
-    margin-left: 25%;
-    width: 50%;
-    height: 80%;
-    /* background-color:#1F1D36;   */
-    position: absolute;
-    top: -40px;
-    background: none;
-      
-}
-.maincontainer{
 
-    position: relative;
-}
-
-.container{
-    text-align: center;
-    margin-top: -3%;
-    margin-left: 25%;
-    width: 50%;
-    height: 80%;
-    /* background-color:#1F1D36;   */
-    position: absolute;
-    top: 50px;
-    background: none;
-      
-}
 .banner{
     width: 100%;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
     z-index: -1;
     margin-bottom: -200px;
+}
+.right-container{
+
+    position: fixed;
+    text-align: center;
+    margin-top: -1%;
+    margin-left: 25%;
+    width: 18%;
+    max-height: max-content;
+    /* background-color:#1F1D36;   */
+    top: 80px;
+    right: 7px;
 }

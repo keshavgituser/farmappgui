@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from './../../services/user.service';
 
+
+
+
 @Component({
   selector: 'app-admindashboard',
   templateUrl: './admindashboard.component.html',
@@ -11,11 +14,14 @@ export class AdmindashboardComponent implements OnInit {
 
 
   userdata:any;
+  
+  
 
   constructor(private userService:UserService) { }
 
   
   ngOnInit(): void {
+    this.getUserDetails();
   }
 
   getUserDetails(){
