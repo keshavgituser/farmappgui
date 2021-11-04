@@ -35,6 +35,11 @@ import { ComplaintService } from './services/complaint.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
 import { RegistertabComponent } from './user_components/registertab/registertab.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FooterComponent } from './adservice_components/footer/footer.component';
+import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -53,6 +58,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     AboutusComponent,
     AddcomplaintComponent,
     RegistertabComponent,
+    FooterComponent,
+    AdminpanelComponent,
     
   ],
   imports: [
@@ -72,7 +79,10 @@ BrowserModule,
     MatPaginatorModule,
     MatProgressBarModule,
     HttpClientModule,    
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatListModule
 
   ],
   providers: 

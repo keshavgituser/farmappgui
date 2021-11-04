@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AdvertisementformComponent implements OnInit {
 
-  username=localStorage.getItem("loggedinusername");;
+  username=localStorage.getItem("loggedinusername");
 
   ad_data={  
     createdby:this.username,
@@ -40,7 +40,7 @@ export class AdvertisementformComponent implements OnInit {
       
     }
 
-    
+
 
 
  

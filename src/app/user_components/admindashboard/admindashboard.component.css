@@ -1,12 +1,35 @@
-.inner_container{
+.maincontainer{
+    position: relative;
+}
+.inside_container{
+    position: absolute;
     text-align: center;
     width:30%;
     margin: auto;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    
     padding: 20px;
     border-top-left-radius: 1%;
 }
-.container{
-    margin-top: 10px;
+
+
+
+
+.banner{
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index: -1;
+    margin-bottom: -200px;
+}
+.right-container{
+
+    position: fixed;
     text-align: center;
+    margin-top: -1%;
+    margin-left: 25%;
+    width: 18%;
+    max-height: max-content;
+    /* background-color:#1F1D36;   */
+    top: 80px;
+    right: 7px;
 }

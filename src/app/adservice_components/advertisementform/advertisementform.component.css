@@ -4,11 +4,16 @@
 }
 .card{
     text-align: center;
-    width:32%;
+    width:70%;
     margin: auto;
-    background-color: #FAEEE0;
+    /* background-color: #FAEEE0; */
+    border: solid 1px;
     padding: 3px;
     border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    border-bottom-left-radius: 1%;
+    border-bottom-right-radius: 1%;
+    
 }
 .container{
     margin-top: 8px;
@@ -26,3 +31,38 @@
 
 
 .mat-icons.color_red { color: #E02401; }
+
+.container {
+    text-align: center;
+    margin-top: 0%;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+    /* background-color:#1F1D36;   */
+    position: absolute;
+    top: -40px;
+    background: none;
+}
+
+.maincontainer {
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+    /* background-color:#1F1D36;   */
+    position: absolute;
+    top: 50px;
+    background: none;
+}
+
+.banner {
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: -1;
+    margin-bottom: -200px;
+}

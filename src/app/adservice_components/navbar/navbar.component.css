@@ -1,7 +1,11 @@
 
 .navbar{
+    /* position: fixed; */
     height: 10%;
-    background-color: #E8E1D9;
+    /* background-color: #24262b; */
+    color:#24262b;
+    background-image: url(
+        src\assets\backgroung.png);
 }
 .example-spacer {
     flex: 1 1 auto;

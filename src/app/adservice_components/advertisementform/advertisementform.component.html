@@ -1,86 +1,92 @@
-<div class="container">
-
-	<div class="card">
-
-		<form (ngSubmit)="doSubmitForm()">
-		<h1>Create Advertisement</h1>
-
-		<mat-form-field class="field" appearance="fill">
-			<mat-label>Created By</mat-label>
-			<input matInput disabled name="createdBy" [(ngModel)]="ad_data.createdby">
-		  </mat-form-field>
-		  <!-- Title form field -->
-		<mat-form-field class="field"  appearance="outline" color="accent">
-			<mat-label >Title</mat-label>
-			<input matInput #title minlength="5" maxlength="10" placeholder="Title" name="title"  [(ngModel)]="ad_data.title">
-			<mat-icon  class="mat-icons color_green" matSuffix *ngIf="title.value.length>5">sentiment_very_satisfied</mat-icon>
-			<mat-icon class="mat-icons color_red" matSuffix *ngIf="title.value.length<5">sentiment_very_dissatisfied</mat-icon>
-			<mat-hint> Title should contain 5-10 characters a-z,A-Z</mat-hint>
-            <mat-hint align="end">{{title.value.length}} / 10</mat-hint>
-		  </mat-form-field>
-
-		  <!-- Adidentifier form field -->
-		<mat-form-field class="field"  appearance="outline" color="accent">
-			<mat-label>AdvertisementIdentifier</mat-label>
-			<input matInput #adidentity minlength="3" maxlength="4" placeholder="identifier" name="adId"  [(ngModel)]="ad_data.adId">
-			<mat-icon class="mat-icons color_green" matSuffix *ngIf="adidentity.value.length>=3">sentiment_very_satisfied</mat-icon>
-			<mat-icon class="mat-icons color_red" matSuffix *ngIf="adidentity.value.length<3">sentiment_very_dissatisfied</mat-icon>
-			<mat-hint align="end">{{adidentity.value.length}} / 4</mat-hint>
-		  </mat-form-field>
-
-		  <!-- Available stock Form field -->
-		  <mat-form-field class="field"  appearance="outline" color="accent">
-			<mat-label>Available stock</mat-label>
-			<input matInput #adstock minlength="1" maxlength="" name="adStock"  [(ngModel)]="ad_data.adStock">
-			<mat-icon class="mat-icons color_green" matSuffix *ngIf="adstock.value.length>0">sentiment_very_satisfied</mat-icon>
-			<mat-icon class="mat-icons color_red" matSuffix *ngIf="adstock.value.length<1">sentiment_very_dissatisfied</mat-icon>
-			<mat-hint align="end">{{adstock.value.length}}/- </mat-hint>
-		  </mat-form-field>
-
-		  <mat-form-field class="field"  appearance="outline" color="accent">
-			<mat-label>Offer Description</mat-label>
-			<textarea matInput minlength="5" maxlength="100" #offerdesc placeholder="Offer description" name="adDescription"  [(ngModel)]="ad_data.adDescription"></textarea>
-			<mat-icon class="mat-icons color_green" matSuffix *ngIf="offerdesc.value.length>0">sentiment_very_satisfied</mat-icon>
-			<mat-icon class="mat-icons color_red" matSuffix *ngIf="offerdesc.value.length<1">sentiment_very_dissatisfied</mat-icon>
-			<mat-hint align="end">{{offerdesc.value.length}}/100 </mat-hint>
-		  </mat-form-field>
-		  
+<div class="maincontainer">
+	<img class="banner" src="
+  \assets\backgroung.png
+  " alt="banner">
+	<div class="container">
 
 
-		  <div class="formbtns">
-                
-			<!-- || progressbar.value>=100 -->
-			<!-- progressbar.value<100 -->
-			  
-			  <div class="submitbtn" *ngIf="
-			  (title.value.length>5 && 
-			  adidentity.value.length>=3 &&
-			  adstock.value.length>0 &&
-			  offerdesc.value.length>0
-
-			  );
-			then enablecreate 
-			else disablecreate
-			 "></div>
-
-			<ng-template #disablecreate>
-			  <mat-progress-bar #progress  mode="buffer"  color="accent"></mat-progress-bar>
-			  <button class="formbtn"  disabled type="submit" mat-raised-button color="accent" >Create</button>
-			  
-			</ng-template>
-
-			<ng-template  #enablecreate >
-			  <button class="formbtn" type="submit" mat-raised-button color="accent" >Create</button>
-			</ng-template>
-
-			  
-				<button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
-		  </div> 
-		  
-		</form>
-		<!-- {{ad_data|json}} -->
-	</div>
+		<div class="card">
 	
+			<form (ngSubmit)="doSubmitForm()">
+			<h1>Create Advertisement</h1>
+	
+			<mat-form-field class="field" appearance="fill">
+				<mat-label>Created By</mat-label>
+				<input matInput disabled name="createdBy" [(ngModel)]="ad_data.createdby">
+			  </mat-form-field>
+			  <!-- Title form field -->
+			<mat-form-field class="field"  appearance="outline" color="accent">
+				<mat-label >Title</mat-label>
+				<input matInput #title minlength="5" maxlength="10" placeholder="Title" name="title"  [(ngModel)]="ad_data.title">
+				<mat-icon  class="mat-icons color_green" matSuffix *ngIf="title.value.length>5">sentiment_very_satisfied</mat-icon>
+				<mat-icon class="mat-icons color_red" matSuffix *ngIf="title.value.length<5">sentiment_very_dissatisfied</mat-icon>
+				<mat-hint> Title should contain 5-10 characters a-z,A-Z</mat-hint>
+				<mat-hint align="end">{{title.value.length}} / 10</mat-hint>
+			  </mat-form-field>
+	
+			  <!-- Adidentifier form field -->
+			<mat-form-field class="field"  appearance="outline" color="accent">
+				<mat-label>AdvertisementIdentifier</mat-label>
+				<input matInput #adidentity minlength="3" maxlength="4" placeholder="identifier" name="adId"  [(ngModel)]="ad_data.adId">
+				<mat-icon class="mat-icons color_green" matSuffix *ngIf="adidentity.value.length>=3">sentiment_very_satisfied</mat-icon>
+				<mat-icon class="mat-icons color_red" matSuffix *ngIf="adidentity.value.length<3">sentiment_very_dissatisfied</mat-icon>
+				<mat-hint align="end">{{adidentity.value.length}} / 4</mat-hint>
+			  </mat-form-field>
+	
+			  <!-- Available stock Form field -->
+			  <mat-form-field class="field"  appearance="outline" color="accent">
+				<mat-label>Available stock</mat-label>
+				<input matInput #adstock minlength="1" maxlength="" name="adStock"  [(ngModel)]="ad_data.adStock">
+				<mat-icon class="mat-icons color_green" matSuffix *ngIf="adstock.value.length>0">sentiment_very_satisfied</mat-icon>
+				<mat-icon class="mat-icons color_red" matSuffix *ngIf="adstock.value.length<1">sentiment_very_dissatisfied</mat-icon>
+				<mat-hint align="end">{{adstock.value.length}}/- </mat-hint>
+			  </mat-form-field>
+	
+			  <mat-form-field class="field"  appearance="outline" color="accent">
+				<mat-label>Offer Description</mat-label>
+				<textarea matInput minlength="5" maxlength="100" #offerdesc placeholder="Offer description" name="adDescription"  [(ngModel)]="ad_data.adDescription"></textarea>
+				<mat-icon class="mat-icons color_green" matSuffix *ngIf="offerdesc.value.length>0">sentiment_very_satisfied</mat-icon>
+				<mat-icon class="mat-icons color_red" matSuffix *ngIf="offerdesc.value.length<1">sentiment_very_dissatisfied</mat-icon>
+				<mat-hint align="end">{{offerdesc.value.length}}/100 </mat-hint>
+			  </mat-form-field>
+			  
+	
+	
+			  <div class="formbtns">
+					
+				<!-- || progressbar.value>=100 -->
+				<!-- progressbar.value<100 -->
+				  
+				  <div class="submitbtn" *ngIf="
+				  (title.value.length>5 && 
+				  adidentity.value.length>=3 &&
+				  adstock.value.length>0 &&
+				  offerdesc.value.length>0
+	
+				  );
+				then enablecreate 
+				else disablecreate
+				 "></div>
+	
+				<ng-template #disablecreate>
+				  <mat-progress-bar #progress  mode="buffer"  color="accent"></mat-progress-bar>
+				  <button class="formbtn"  disabled type="submit" mat-raised-button color="accent" >Create</button>
+				  
+				</ng-template>
+	
+				<ng-template  #enablecreate >
+				  <button class="formbtn" type="submit" mat-raised-button color="accent" >Create</button>
+				</ng-template>
+	
+				  
+					<button class="formbtn" type="reset" mat-stroked-button color="" >Clear</button>
+			  </div> 
+			  
+			</form>
+			<!-- {{ad_data|json}} -->
+		</div>
+		
+	</div>
 </div>
 
 <!-- 

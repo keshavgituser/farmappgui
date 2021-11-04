@@ -4,12 +4,21 @@
 }
 
 .card{
+    position: absolute;
     text-align: center;
-    width:25%;
+    width:50%;
     margin: auto;
-    background-color: #FAEEE0;
+    /* background-color: #FAEEE0; */
+    background:none;
     padding: 20px;
+    border: solid 1px;
+    padding: 3px;
+    bottom:20%;
+    left: 25%;
     border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+    border-bottom-left-radius: 1%;
+    border-bottom-right-radius: 1%;
 }
 
 .container{
@@ -18,6 +27,7 @@
 
 .card h1{
     text-align: center;
+    padding: 5px;
 }
 
 .formbtn{
@@ -28,3 +38,28 @@
 
 
 .mat-icons.color_red { color: #E02401; }
+
+
+
+.maincontainer {
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+    /* background-color:#1F1D36;   */
+    position: absolute;
+    top: 50px;
+    background: none;
+}
+
+.banner {
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: -1;
+    margin-bottom: -200px;
+}

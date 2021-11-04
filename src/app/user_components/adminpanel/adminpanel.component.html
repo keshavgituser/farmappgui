@@ -1,0 +1,66 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true;"
+                       (closed)="panelOpenState = false">
+
+    <mat-expansion-panel-header>
+      
+      <mat-panel-title>
+        <mat-icon>face</mat-icon>&nbsp;&nbsp;&nbsp;Show Profile
+           
+      </mat-panel-title>
+      
+    </mat-expansion-panel-header>
+    <mat-selection-list #dropdownlist [multiple]="false">
+      <form (ngSubmit)="updateUserDetails()">
+        <!-- loginname Field -->
+        <mat-form-field  class="field" appearance="outline" color="primary">
+          <mat-label>LoginName</mat-label>
+          <input matInput disabled name="loginName" [(ngModel)]="paneldata.loginName">
+        </mat-form-field>
+        <!-- /loginname Field -->
+
+        <!--all fields disabled-->
+
+        <mat-form-field *ngIf=!update class="field" appearance="outline" color="primary">
+          <mat-label>Username</mat-label>
+          <input matInput disabled name="userName" [(ngModel)]="paneldata.userName">
+        </mat-form-field>
+
+        <mat-form-field *ngIf=!update class="field" appearance="outline" color="primary">
+          <mat-label>Phone</mat-label>
+          <input matInput disabled name="phone" [(ngModel)]="paneldata.phone">
+        </mat-form-field>
+
+
+        <!-- All fields enabled -->
+        <mat-form-field *ngIf=update class="field" appearance="outline" color="primary" >
+          <mat-label>new Username</mat-label>
+          <input #name required matInput maxlength="10" name="userName" [(ngModel)]="userdata.userName" autocomplete="off">
+          <mat-hint align="end">{{name.value.length}}/10 </mat-hint>
+        </mat-form-field>
+        <mat-form-field *ngIf=update class="field" appearance="outline" color="primary" > 
+          <mat-label>new Phone</mat-label>
+          <input matInput required #phone maxlength="10" name="phone" [(ngModel)]="userdata.phone" autocomplete="off">
+          <mat-hint align="end">{{phone.value.length}}/10 </mat-hint>
+        </mat-form-field>
+        <mat-form-field *ngIf=update class="field" appearance="outline" color="primary" >
+          <mat-label>new Password</mat-label>
+                <input name="pwd" maxlength="10" [(ngModel)]="userdata.pwd" matInput #pwd required [type]="hide ? 'password' : 'text'" name="password" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="end">{{pwd.value.length}}/10 </mat-hint>
+        </mat-form-field>
+
+
+        <button mat-button *ngIf=update type="submit">Update</button>
+        <button mat-stroked-button *ngIf=update type="reset">Clear</button>
+        <button mat-button *ngIf=!update (click)="updateUser()">Edit</button>
+        <button mat-button *ngIf=update (click)="cancelUpdate()">Cancel</button>
+
+
+      </form>
+    </mat-selection-list>
+
+  </mat-expansion-panel>
+</mat-accordion>

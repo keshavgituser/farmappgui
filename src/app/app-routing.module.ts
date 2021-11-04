@@ -3,16 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
+import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
+import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
 import { RegistertabComponent } from './user_components/registertab/registertab.component';
-
 
 
 const routes: Routes = [
@@ -21,8 +22,16 @@ const routes: Routes = [
     path:"createad",
     component:AdvertisementformComponent,
     pathMatch:"full",
+    
+    
     canActivate:[AuthGuard]
   },
+  {
+    path:"viewallads",
+    component:ViewalladsComponent,
+    pathMatch:"full"
+}
+,
   {
     path:"viewad",
     component:ViewadvertiseComponent,
@@ -50,7 +59,7 @@ const routes: Routes = [
   {
     path:"admindashboard",
     component:AdmindashboardComponent,
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard],
 
   },
   {
@@ -88,6 +97,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
 
 exports: [RouterModule]
 })
