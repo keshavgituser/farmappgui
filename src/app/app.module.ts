@@ -40,6 +40,9 @@ import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.com
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
+import { MainNavComponent } from './complaint_components/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -60,6 +63,7 @@ import {MatListModule} from '@angular/material/list';
     RegistertabComponent,
     FooterComponent,
     AdminpanelComponent,
+    MainNavComponent,
     
   ],
   imports: [
@@ -82,7 +86,9 @@ BrowserModule,
     MatTabsModule,
     MatExpansionModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    LayoutModule,
+    MatSidenavModule
 
   ],
   providers: 

@@ -1,23 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service';
-import { LoginformComponent } from './../../user_components/loginform/loginform.component';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-main-nav',
+  templateUrl: './main-nav.component.html',
+  styleUrls: ['./main-nav.component.css']
 })
-export class NavbarComponent implements OnInit {
-
-  public loggedin=false;
-  public loggedinusername=localStorage.getItem("loggedinusername");;
-  public userrole=localStorage.getItem("role");
-
-
+export class MainNavComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -25,8 +18,11 @@ export class NavbarComponent implements OnInit {
       shareReplay()
     );
 
-  // public loggedinasadmin=false;
-  constructor(private breakpointObserver: BreakpointObserver,private loginservice:LoginService,private router:Router) { }
+  public loggedin=false;
+  public loggedinusername=localStorage.getItem("loggedinusername");;
+  public userrole=localStorage.getItem("role");
+
+  constructor(private breakpointObserver: BreakpointObserver,private loginservice:LoginService,private router:Router) {}
 
   ngOnInit(): void {
     this.loggedin=this.loginservice.isLoggedin();
@@ -37,6 +33,7 @@ export class NavbarComponent implements OnInit {
     // console.log(this.loggedinasadmin);
   }
 
+  
   logoutUser(){
     this.loginservice.logout();
     location.reload();
@@ -65,5 +62,8 @@ export class NavbarComponent implements OnInit {
 
 
   }
+
+
+
 
 }
