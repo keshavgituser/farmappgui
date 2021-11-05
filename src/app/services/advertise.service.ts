@@ -13,7 +13,7 @@ export class AdvertiseService {
   
 
   createAdvertisement(ad_data:any){
-    
+    return this.http.post(`${this.baseUrl}/create`,ad_data);
   }
 
 

@@ -1,12 +1,12 @@
 .field{
     width:90%;
     height:65px;
+    margin-top: 10px;
     
 }
 
 .input{
     border: black solid 2px;
-    padding: 1px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -19,7 +19,7 @@
     /* background-color: #FAEEE0; */
    
     border: black solid 1px;
-    padding: 3px;
+    padding: 1px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -42,12 +42,12 @@
 }
 .formbtns{
     margin:5px;
-    margin-top: 30px;
+    margin-top: 15px;
 
 }
 .mat-progress-bar{
     position: absolute;
-    top:410px;
+    top:455px;
     width: 320px;
     right:250px;
     margin-bottom: 10px;

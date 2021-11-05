@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
+import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -88,7 +88,8 @@ BrowserModule,
     MatGridListModule,
     MatListModule,
     LayoutModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ReactiveFormsModule
 
   ],
   providers: 
