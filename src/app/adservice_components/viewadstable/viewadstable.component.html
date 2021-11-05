@@ -1,24 +1,49 @@
 <div class="data-table">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
+  <table mat-table [dataSource]="dataSource.data" class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    <ng-container matColumnDef="advertiseId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>advertiseId</th>
+      <td mat-cell *matCellDef="let data">{{data.advertiseId}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <!-- ad identifier -->
+    <ng-container matColumnDef="advertiseIdentifier">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>adIdentifier</th>
+      <td mat-cell *matCellDef="let row">{{row.advertiseIdentifier}}</td>
     </ng-container>
+
+    <!-- ad Stock -->
+    <ng-container matColumnDef="availableStock">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+  
+    <!-- ad Description -->
+    <ng-container matColumnDef="offerDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+    <!-- ad  postedBy -->
+    <ng-container matColumnDef="postedBy">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>postedBy</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+    <!-- ad title -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>title</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>
   </table>
 
-  <!-- [pageSizeOptions]="[5, 10, 20]" -->
+  <!-- [pageSizeOptions]="[5, 10, 20]"    [length]="dataSource?.data?.length"-->
   <mat-paginator class="paginator" #paginator
-      [length]="dataSource?.data?.length"
       [pageIndex]="0"
       [pageSize]="5"
        [pageSizeOptions]="[5]" 
