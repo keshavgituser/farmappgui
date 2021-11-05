@@ -2,6 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
+import { ViewadstableComponent } from './adservice_components/viewadstable/viewadstable.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path:"viewad",
     component:ViewadvertiseComponent,
+    pathMatch:"full"
+  },
+  {
+    path:"viewallads",
+    component:ViewadstableComponent,
     pathMatch:"full"
   },
   {

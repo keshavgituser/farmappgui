@@ -1,0 +1,12 @@
+.full-width-table {
+  width: 100%;
+  
+}
+.data-table{
+  position: absolute;
+  width: 70%;
+  height: 20px;
+  margin: 20px auto;
+  top: 60px;
+  left:250px;
+}

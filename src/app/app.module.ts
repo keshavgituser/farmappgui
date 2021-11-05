@@ -42,6 +42,7 @@ import {MatListModule} from '@angular/material/list';
 import { MainNavComponent } from './complaint_components/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ViewadstableComponent } from './adservice_components/viewadstable/viewadstable.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     FooterComponent,
     AdminpanelComponent,
     MainNavComponent,
+    ViewadstableComponent,
     
   ],
   imports: [
