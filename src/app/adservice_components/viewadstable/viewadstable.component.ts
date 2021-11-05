@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { AdvertiseService } from 'src/app/services/advertise.service';
 import { ViewadstableDataSource, ViewadstableItem } from './viewadstable-datasource';
 
 @Component({
@@ -18,7 +19,7 @@ export class ViewadstableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
-  constructor() {
+  constructor(private adservice:AdvertiseService) {
     this.dataSource = new ViewadstableDataSource();
   }
 
@@ -30,13 +31,28 @@ export class ViewadstableComponent implements AfterViewInit {
 
   ngOnInit(): void {
 
-    console.log("works");
+    this.getAllAdvertisements();
     
   }
 
   getAllAdvertisements(){
 
-    
+    this.adservice.getAllAdvertisements().subscribe(
+
+      response=>{
+        console.log(response);
+        
+      }
+      ,
+      error=>{
+        console.log(error);
+        
+
+
+      }
+    )
+
+
   }
   
 }
