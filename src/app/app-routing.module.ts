@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import { HomeComponent } from './adservice_components/home/home.component';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
-import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
 import { AuthGuard } from './services/auth.guard';
@@ -26,12 +25,6 @@ const routes: Routes = [
     
     canActivate:[AuthGuard]
   },
-  {
-    path:"viewallads",
-    component:ViewalladsComponent,
-    pathMatch:"full"
-}
-,
   {
     path:"viewad",
     component:ViewadvertiseComponent,

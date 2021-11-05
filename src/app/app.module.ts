@@ -17,7 +17,6 @@ import { ViewadvertiseComponent } from './adservice_components/viewadvertise/vie
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
-import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -52,7 +51,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     AdvertisementformComponent,
     HomeComponent,
     ViewadvertiseComponent,
-    ViewalladsComponent,
     RegisterformComponent,
     LoginformComponent,
     AdmindashboardComponent,
