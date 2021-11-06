@@ -5,10 +5,18 @@ import { MatTable, _MatTableDataSource } from '@angular/material/table';
 import { AdvertiseService } from 'src/app/services/advertise.service';
 // import { ViewadDataSource } from './viewadstable-datasource';
 // import { ViewadItem, ViewadDataSource, ViewadstableItem } from './viewadstable-datasource';
-import { ViewadItem } from './viewad-item';
 import { DataSource } from '@angular/cdk/collections';
 
+export interface ViewadItem {
+  advertiseId:number;
+  advertiseIdentifier:string;
+  availableStock:string;
+  offerDescription:string;
+  postedBy:string;
+}
 
+let AD_DATA: ViewadItem[] = [
+];
 
 
 @Component({
@@ -17,17 +25,18 @@ import { DataSource } from '@angular/cdk/collections';
   styleUrls: ['./viewadstable.component.css']
 })
 export class ViewadstableComponent implements AfterViewInit {
-  AD_DATA: ViewadItem[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ViewadItem>;
-  dataSource=new _MatTableDataSource<ViewadItem>(this.AD_DATA);
+  // @ViewChild(MatTable) table!: MatTable<ViewadItem>;
+  dataSource=new _MatTableDataSource<ViewadItem>(AD_DATA);
   // dataSource=ViewadDataSource;
 
   
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ["advertiseId","advertiseIdentifier","availableStock","offerDescription","postedBy"];
+  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. 
+   * "advertiseId","advertiseIdentifier","availableStock","offerDescription","postedBy"
+  */
+  displayedColumns = ["advertiseId","title","advertiseIdentifier","availableStock","offerDescription","postedBy"];
 
 
   ad_data={  
@@ -46,13 +55,17 @@ export class ViewadstableComponent implements AfterViewInit {
 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    // this.table.dataSource = this.dataSource;
+    this.getAllAdvertisements();
 
   }
 
   ngOnInit(): void {
 
     this.getAllAdvertisements();
+    AD_DATA.forEach(element => {
+      
+    });
     
   }
 
@@ -68,3 +81,38 @@ export class ViewadstableComponent implements AfterViewInit {
   }
   
 }
+
+
+/**
+ * 
+ *  <!-- ad identifier -->
+    <ng-container matColumnDef="advertiseIdentifier">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>adIdentifier</th>
+      <td mat-cell *matCellDef="let row">{{row.advertiseIdentifier}}</td>
+    </ng-container>
+
+    <!-- ad Stock -->
+    <ng-container matColumnDef="availableStock">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+  
+    <!-- ad Description -->
+    <ng-container matColumnDef="offerDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+    <!-- ad  postedBy -->
+    <ng-container matColumnDef="postedBy">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>postedBy</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+    <!-- ad title -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>title</th>
+      <!-- <td mat-cell *matCellDef="let row">{{row.name}}</td> -->
+    </ng-container>
+
+ */
