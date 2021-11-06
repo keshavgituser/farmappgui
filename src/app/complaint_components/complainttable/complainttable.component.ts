@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
@@ -18,7 +18,7 @@ let COMP_DATA: ComplaintItem[] = [
   templateUrl: './complainttable.component.html',
   styleUrls: ['./complainttable.component.css']
 })
-export class ComplainttableComponent implements OnInit {
+export class ComplainttableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource=new _MatTableDataSource<ComplaintItem>(COMP_DATA);
@@ -33,6 +33,16 @@ export class ComplainttableComponent implements OnInit {
 
 
   constructor(private compService:ComplaintService) { }
+
+  ngAfterViewInit(): void {
+
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    // this.table.dataSource = this.dataSource;
+    this.getAllComplaints();
+
+  }
+
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;

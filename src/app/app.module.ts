@@ -44,6 +44,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ViewadstableComponent } from './adservice_components/viewadstable/viewadstable.component';
 import { ComplainttableComponent } from './complaint_components/complainttable/complainttable.component';
+import { DealerstableComponent } from './user_components/dealerstable/dealerstable.component';
+import { FarmerstableComponent } from './user_components/farmerstable/farmerstable.component';
+import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
 
 
 @NgModule({
@@ -66,6 +69,9 @@ import { ComplainttableComponent } from './complaint_components/complainttable/c
     MainNavComponent,
     ViewadstableComponent,
     ComplainttableComponent,
+    DealerstableComponent,
+    FarmerstableComponent,
+    AdminstableComponent,
     
   ],
   imports: [

@@ -10,8 +10,11 @@ import { ComplainttableComponent } from './complaint_components/complainttable/c
 import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.component';
+import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
 import { DealerdashboardComponent } from './user_components/dealerdashboard/dealerdashboard.component';
+import { DealerstableComponent } from './user_components/dealerstable/dealerstable.component';
 import { FarmerdashboardComponent } from './user_components/farmerdashboard/farmerdashboard.component';
+import { FarmerstableComponent } from './user_components/farmerstable/farmerstable.component';
 import { LoginformComponent } from './user_components/loginform/loginform.component';
 import { RegisterformComponent } from './user_components/registerform/registerform.component';
 import { RegistertabComponent } from './user_components/registertab/registertab.component';
@@ -24,6 +27,27 @@ const routes: Routes = [
     component:AdvertisementformComponent,
     pathMatch:"full",
     canActivate:[AuthGuard]
+  },
+  {
+    path:"viewalldealers",
+    component:DealerstableComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
+
+  },
+  {
+    path:"viewalladmins",
+    component:AdminstableComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
+
+  },
+  {
+    path:"viewallfarmers",
+    component:FarmerstableComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
+
   },
   {
     path:"viewallcomplaints",
