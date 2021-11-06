@@ -3,9 +3,55 @@
 <!-- I will show home icon if user is logged in as admin else hide 
     *ngIf="loggedinasadmin" by using this code on btn and icon both
 -->
-<button  routerLink=''  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon >home</mat-icon>
+
+<!-- sidenav -->
+<!-- Sidenav -->
+
+<div *ngIf="loggedin" class="sidenavbar">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      
+      <mat-nav-list>
+        <a mat-list-item href="viewallads">View All Advertisements</a>
+        <a mat-list-item href="createad">Create Advertisement</a>
+        <a mat-list-item href="viewallcomplaints">View All Complaints</a>
+        <a mat-list-item href="viewalldealers">View All Dealers</a>
+        <a mat-list-item href="viewallfarmers">View All Farmers</a>
+        <a mat-list-item href="viewalladmins">View All Admins</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="toggle-button">
+      <!-- <mat-toolbar color="primary"> -->
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="(isHandset$ | async) || loggedin">
+          <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
+        </button>
+        <!-- <span>farmappgui</span> -->
+      <!-- </mat-toolbar> -->
+      <!-- Add Content Here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+
+<button *ngIf="!loggedin"  routerLink=''  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon *ngIf="!loggedin">home</mat-icon>
   </button> 
+
+
+
+
+
 
   <!-- Span text -->
   <span>Farmer Assistant</span>
@@ -46,7 +92,7 @@
   <!-- loggedinusername -->
   <mat-label class="label"  [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">{{loggedinusername}}</mat-label>
   <a class="navbar-btn" *ngIf="loggedin" (click)="userDashboard()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>perm_identity</mat-icon>
+    <mat-icon>dashboard</mat-icon>
     
   </a>
 
@@ -57,4 +103,5 @@
     <mat-icon>input</mat-icon>
     
   </a>
+  <ng-content></ng-content>
 </mat-toolbar>

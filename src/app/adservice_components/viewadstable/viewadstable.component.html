@@ -1,0 +1,50 @@
+<div class="data-table">
+  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="AD_DATA">
+    <!-- Id Column -->
+    <ng-container  matColumnDef="advertiseId">
+      <th class="column1" mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td class="row1" mat-cell *matCellDef="let row">{{row.advertiseId}}</td>
+    </ng-container>
+
+    <!-- ad title -->
+    <ng-container matColumnDef="title">
+      <th class="column2" mat-header-cell *matHeaderCellDef mat-sort-header>title</th>
+      <td class="row2" mat-cell *matCellDef="let row">{{row.title}}</td>
+    </ng-container>
+    <!-- ad identifier -->
+    <ng-container  matColumnDef="advertiseIdentifier">
+      <th class="column3" mat-header-cell *matHeaderCellDef mat-sort-header>Identifier</th>
+      <td class="row3" mat-cell *matCellDef="let row">{{row.advertiseIdentifier}}</td>
+    </ng-container>
+
+    <!-- ad Stock -->
+    <ng-container matColumnDef="availableStock">
+      <th class="column4" mat-header-cell *matHeaderCellDef mat-sort-header>Stock</th>
+      <td class="row4" mat-cell *matCellDef="let row">{{row.availableStock}}</td>
+    </ng-container>
+
+
+     <!-- ad Description -->
+     <ng-container matColumnDef="offerDescription">
+      <th class="column5"   mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <td class="row5"  mat-cell *matCellDef="let row">{{row.offerDescription}}</td>
+    </ng-container>
+
+    <!-- ad  postedBy -->
+    <ng-container matColumnDef="postedBy">
+      <th class="column6" mat-header-cell *matHeaderCellDef mat-sort-header>postedBy</th>
+      <td class="row6" mat-cell *matCellDef="let row">{{row.postedBy}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- [pageSizeOptions]="[5, 10, 20]"    [length]="dataSource?.data?.length"-->
+  <mat-paginator class="paginator" #paginator
+      [pageIndex]="0"
+      [pageSize]="5"
+       [pageSizeOptions]="[5]" 
+      aria-label="Select page">
+  </mat-paginator>
+</div>

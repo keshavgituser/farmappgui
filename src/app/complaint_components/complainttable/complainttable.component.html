@@ -1,0 +1,39 @@
+<div class="data-table">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="AD_DATA">
+
+
+         <!-- Postedby Column -->
+      <ng-container  matColumnDef="createdBy">
+        <th class="column1" mat-header-cell *matHeaderCellDef mat-sort-header>Posted By</th>
+        <td class="row1" mat-cell *matCellDef="let row">{{row.createdBy}}</td>
+      </ng-container>
+
+       <!-- Created at Column -->
+       <ng-container  matColumnDef="createdAt">
+        <th class="column2" mat-header-cell *matHeaderCellDef mat-sort-header>Posted At</th>
+        <td class="row2" mat-cell *matCellDef="let row">{{row.createdAt}}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container  matColumnDef="complainDescription">
+        <th class="column3" mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td class="row3" mat-cell *matCellDef="let row">{{row.complainDescription}}</td>
+      </ng-container>
+  
+     
+  
+     
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>
+    </table>
+  
+    <!-- [pageSizeOptions]="[5, 10, 20]"    [length]="dataSource?.data?.length"-->
+    <mat-paginator class="paginator" #paginator
+        [pageIndex]="0"
+        [pageSize]="5"
+         [pageSizeOptions]="[5]" 
+        aria-label="Select page">
+    </mat-paginator>
+  </div>
+  

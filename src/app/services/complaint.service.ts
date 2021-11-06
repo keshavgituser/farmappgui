@@ -12,10 +12,14 @@ export class ComplaintService {
   private baseUrl:string="http://localhost:9091/complaint";
   constructor(private http:HttpClient) { }
 
-  registerComplaint(comp_data:any)
-{
-  //this.loginform.getloggedInUsername
+  registerComplaint(comp_data: any) {
+    //this.loginform.getloggedInUsername
 
-  return this.http.post(`${this.baseUrl}/${this.username}/addComplaint`,comp_data);
-}
+    return this.http.post(`${this.baseUrl}/${this.username}/addComplaint`, comp_data);
+  }
+
+
+  getAllComplaints(){
+    return this.http.get(`${this.baseUrl}/viewAllComplaint`);
+  }
 }

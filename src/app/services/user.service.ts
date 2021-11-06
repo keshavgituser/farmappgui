@@ -20,4 +20,13 @@ export class UserService {
   updateUser(user_data:any){
     return this.http.put(`${this.baseUrl}/profile/update`,user_data);
   }
+
+  getAllByRole(role:any){
+    return this.http.get(`${this.baseUrl}/profiles/allbyrole/${role}`);
+  }
+  
+  getAllUsers(){
+    return this.http.get(`${this.baseUrl}/profiles/all`);
+
+  }
 }

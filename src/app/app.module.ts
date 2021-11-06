@@ -12,12 +12,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
+import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
-import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -40,6 +39,14 @@ import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.com
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
+import { MainNavComponent } from './complaint_components/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ViewadstableComponent } from './adservice_components/viewadstable/viewadstable.component';
+import { ComplainttableComponent } from './complaint_components/complainttable/complainttable.component';
+import { DealerstableComponent } from './user_components/dealerstable/dealerstable.component';
+import { FarmerstableComponent } from './user_components/farmerstable/farmerstable.component';
+import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
 
 
 @NgModule({
@@ -49,7 +56,6 @@ import {MatListModule} from '@angular/material/list';
     AdvertisementformComponent,
     HomeComponent,
     ViewadvertiseComponent,
-    ViewalladsComponent,
     RegisterformComponent,
     LoginformComponent,
     AdmindashboardComponent,
@@ -60,6 +66,12 @@ import {MatListModule} from '@angular/material/list';
     RegistertabComponent,
     FooterComponent,
     AdminpanelComponent,
+    MainNavComponent,
+    ViewadstableComponent,
+    ComplainttableComponent,
+    DealerstableComponent,
+    FarmerstableComponent,
+    AdminstableComponent,
     
   ],
   imports: [
@@ -82,7 +94,10 @@ BrowserModule,
     MatTabsModule,
     MatExpansionModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    LayoutModule,
+    MatSidenavModule,
+    ReactiveFormsModule
 
   ],
   providers: 
