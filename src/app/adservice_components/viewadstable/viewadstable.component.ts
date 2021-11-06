@@ -6,6 +6,10 @@ import { AdvertiseService } from 'src/app/services/advertise.service';
 // import { ViewadDataSource } from './viewadstable-datasource';
 // import { ViewadItem, ViewadDataSource, ViewadstableItem } from './viewadstable-datasource';
 import { DataSource } from '@angular/cdk/collections';
+import { MatDialog } from '@angular/material/dialog';
+import { NewadComponent } from '../newad/newad.component';
+import { LoginService } from 'src/app/services/login.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 export interface ViewadItem {
   advertiseId:number;
@@ -30,13 +34,16 @@ export class ViewadstableComponent implements AfterViewInit {
   // @ViewChild(MatTable) table!: MatTable<ViewadItem>;
   dataSource=new _MatTableDataSource<ViewadItem>(AD_DATA);
   // dataSource=ViewadDataSource;
+  loggedin=false;
 
   
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. 
    * "advertiseId","advertiseIdentifier","availableStock","offerDescription","postedBy"
   */
-  displayedColumns = ["advertiseId","title","advertiseIdentifier","availableStock","offerDescription","postedBy"];
+  displayedColumns = ["advertiseId","title",
+  "advertiseIdentifier","availableStock",
+  "offerDescription","postedBy","actions"];
 
 
   ad_data={  
@@ -47,14 +54,25 @@ export class ViewadstableComponent implements AfterViewInit {
     // availableStock:'',
     // postedBy:'',
   }
-  constructor(private adservice:AdvertiseService) {
+  urole:any;
+  public isadmin=false;
+  public isdealer=false;
+  public isfarmer=false;
+  constructor(private loginservice:LoginService,private adservice:AdvertiseService,public dialog: MatDialog) {
     
+  }
+  openDialog() {
+    this.loggedin=this.loginservice.isLoggedin();
+    this.dialog.open(NewadComponent);
   }
 
   ngAfterViewInit(): void {
 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.urole=localStorage.getItem("role");
+    this.checkUserType(this.urole);
+
     // this.table.dataSource = this.dataSource;
     this.getAllAdvertisements();
 
@@ -63,10 +81,35 @@ export class ViewadstableComponent implements AfterViewInit {
   ngOnInit(): void {
 
     this.getAllAdvertisements();
+    this.urole=localStorage.getItem("role");
+    this.checkUserType(this.urole);
     AD_DATA.forEach(element => {
       
     });
     
+  }
+
+  checkUserType(urole:string){
+
+    if(this.urole=="[ROLE_ADMIN]")
+    {
+      this.isadmin=true;
+      return
+      
+    
+    }
+    if(this.urole=="[ROLE_DEALER]")
+    {
+      this.isdealer=true;
+      return
+    }
+    if(this.urole=="[ROLE_FARMER]")
+    {
+      this.isfarmer=true;
+      return
+    }
+
+
   }
 
   getAllAdvertisements(){

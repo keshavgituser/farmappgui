@@ -34,7 +34,7 @@ export class DealerstableComponent implements AfterViewInit {
 	 * @param pwd
 	 * @param phone
    */
-  displayedColumns = ["userName","loginName","phone"];
+  displayedColumns = ["userName","loginName","phone","actions"];
   role="ROLE_DEALER";
   constructor(private userService2:UserService) { }
 

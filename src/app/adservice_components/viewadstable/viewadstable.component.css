@@ -4,6 +4,14 @@
   border: whitesmoke solid;
   
 }
+.mat-dialog-container {
+  width: 10%;
+}
+
+.createbtn{
+  margin-bottom: 7px;
+}
+
 .data-table{
   position: absolute;
   width: 70%;

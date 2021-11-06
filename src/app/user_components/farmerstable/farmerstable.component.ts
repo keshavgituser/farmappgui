@@ -36,7 +36,7 @@ export class FarmerstableComponent implements AfterViewInit{
 	 * @param pwd
 	 * @param phone
    */
-   displayedColumns = ["userName","loginName","phone"];
+   displayedColumns = ["userName","loginName","phone","actions"];
    role="ROLE_FARMER";
   constructor(private userService3:UserService) { }
 

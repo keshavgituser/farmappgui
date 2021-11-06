@@ -13,7 +13,7 @@
     padding: 20px;
     border: solid 1px;
     padding: 3px;
-    bottom:20%;
+    bottom:600%;
     left: 25%;
     border-top-left-radius: 1%;
     border-top-right-radius: 1%;
@@ -28,6 +28,7 @@
 .card h1{
     text-align: center;
     padding: 5px;
+    margin-top: 20px;
 }
 
 .formbtn{
@@ -53,7 +54,7 @@
     height: 80%;
     /* background-color:#1F1D36;   */
     position: absolute;
-    top: 50px;
+    top: -300px;
     background: none;
 }
 

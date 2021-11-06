@@ -32,7 +32,7 @@ export class AdminstableComponent implements AfterViewInit {
 	 * @param pwd
 	 * @param phone
    */
-   displayedColumns = ["userName","loginName","phone"];
+   displayedColumns = ["userName","loginName","phone","actions"];
    role="ROLE_ADMIN";
   constructor(private userService1:UserService) { }
 
