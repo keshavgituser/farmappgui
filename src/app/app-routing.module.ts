@@ -6,6 +6,7 @@ import { ViewadstableComponent } from './adservice_components/viewadstable/viewa
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 import { AboutusComponent } from './complaint_components/aboutus/aboutus.component';
 import { AddcomplaintComponent } from './complaint_components/addcomplaint/addcomplaint.component';
+import { ComplainttableComponent } from './complaint_components/complainttable/complainttable.component';
 import { AuthGuard } from './services/auth.guard';
 import { AdmindashboardComponent } from './user_components/admindashboard/admindashboard.component';
 import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.component';
@@ -22,9 +23,14 @@ const routes: Routes = [
     path:"createad",
     component:AdvertisementformComponent,
     pathMatch:"full",
-    
-    
     canActivate:[AuthGuard]
+  },
+  {
+    path:"viewallcomplaints",
+    component:ComplainttableComponent,
+    pathMatch:"full",
+    canActivate:[AuthGuard]
+
   },
   {
     path:"viewad",
