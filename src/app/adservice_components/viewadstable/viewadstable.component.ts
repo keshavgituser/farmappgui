@@ -11,6 +11,7 @@ import { NewadComponent } from '../newad/newad.component';
 import { LoginService } from 'src/app/services/login.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UpdateadComponent } from './../updatead/updatead.component';
 
 export interface ViewadItem {
   advertiseId:number;
@@ -62,9 +63,15 @@ export class ViewadstableComponent implements AfterViewInit {
   constructor(private snack:MatSnackBar,private loginservice:LoginService,private adservice:AdvertiseService,public dialog: MatDialog) {
     
   }
-  openDialog() {
+  opencreateDialog() {
     this.loggedin=this.loginservice.isLoggedin();
     this.dialog.open(NewadComponent);
+  }
+  openupdateDialog(title:any) {
+    this.loggedin=this.loginservice.isLoggedin();
+    console.log(title);
+    localStorage.setItem("title",title);
+    this.dialog.open(UpdateadComponent);
   }
 
   ngAfterViewInit(): void {

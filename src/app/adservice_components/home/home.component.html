@@ -1,48 +1,17 @@
-<html><head></head><body>
-    <h1>Farm Assistance System</h1>
-    <div class="maindiv"></div>
-<style>
-    body{
-        background-color: rgba(27,31,34,0,85);
-    }
-    h1{
-        font-size: 2.1rem;
-        line-height: 1.4;
-        letter-spacing: 0.35rem;
-        text-align: center;
-        color: black;
-        margin-top: 40px;
-    }
-    .maindiv{
-        width: 70%;
-        height: 400px;
-        position: absolute;
-        left: 50%;
-        top:50%;
-        transform: translate(-50%, -50%);
-        background-image:url('https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fcognitiveworld%2Ffiles%2F2019%2F07%2FDepositphotos_162344144_s-2019.jpg');
-        background-size: 100% 100%;
-        box-shadow: 1px 2px 10px 5px white;
-        animation: slider 15s infinite linear;
-    }
-
-    @keyframes slider{
-        0% {background-image: url('https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fcognitiveworld%2Ffiles%2F2019%2F07%2FDepositphotos_162344144_s-2019.jpg')}
-        20%{
-            background-image:url('https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_655,h_427/https://www.farmerp.com/wp-content/uploads/2021/01/Transformation-Business.jpg');
-        }
-        40%{
-            background-image: url('https://static.businessworld.in/article/article_extra_large_image/1478073024_Frbdt4_agritech.jpg');
-        }
-        60%{
-            background-image: url('https://miro.medium.com/max/1838/1*21JOeS-UlfrlFPIaps7v6w@2x.jpeg');
-        }
-        80%{
-          background-image: url('https://agriculturepost.com/wp-content/uploads/2020/09/5-schemes-promoting-organic-farming-in-India.jpg');
-        }
-
-    }
-</style>
-
-
-</body></html>
+<!-- <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+              [animation]="'slide'">
+  <mdb-carousel-item *ngFor="let item of slides; let i = index">
+    <div class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+      <mdb-card class="my-1">
+        <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+        <mdb-card-body>
+          <mdb-card-title>
+            <h4>{{card.title}}</h4>
+          </mdb-card-title>
+          <p>{{card.description}}</p>
+          <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel> -->

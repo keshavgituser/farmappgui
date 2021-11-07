@@ -84,5 +84,9 @@ export class DealerstableComponent implements AfterViewInit {
     window.location.reload();
     this.snackbar.open("Dealer Deleted Successfully","OK");
   }
+  viewUser(loginName:any){
+    console.log(loginName);
+    
+  }
 }
 

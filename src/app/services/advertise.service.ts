@@ -26,4 +26,13 @@ export class AdvertiseService {
     return this.http.delete(`${this.baseUrl}/${advertiseIdentifier}`);
   }
 
+  getAdvertise(title:any)
+  {
+    return this.http.get(`${this.baseUrl}/${title}`);
+  }
+  updateAdvertisement(show_data:any)
+  {
+    return this.http.patch(`${this.baseUrl}/updateAdvertisement`,show_data);
+  }
+
 }

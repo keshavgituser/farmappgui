@@ -48,6 +48,9 @@ import { FarmerstableComponent } from './user_components/farmerstable/farmerstab
 import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
 import { NewadComponent } from './adservice_components/newad/newad.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateadComponent } from './adservice_components/updatead/updatead.component';
+// For MDB Angular Free
+// import { CarouselModule, WavesModule } from 'angular-bootstrap-md'
 
 
 @NgModule({
@@ -73,6 +76,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FarmerstableComponent,
     AdminstableComponent,
     NewadComponent,
+    UpdateadComponent,
     
   ],
   imports: [
