@@ -49,6 +49,7 @@ import { AdminstableComponent } from './user_components/adminstable/adminstable.
 import { NewadComponent } from './adservice_components/newad/newad.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateadComponent } from './adservice_components/updatead/updatead.component';
+import { ViewuserComponent } from './user_components/viewuser/viewuser.component';
 // For MDB Angular Free
 // import { CarouselModule, WavesModule } from 'angular-bootstrap-md'
 
@@ -77,6 +78,7 @@ import { UpdateadComponent } from './adservice_components/updatead/updatead.comp
     AdminstableComponent,
     NewadComponent,
     UpdateadComponent,
+    ViewuserComponent,
     
   ],
   imports: [

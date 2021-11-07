@@ -23,12 +23,12 @@
   
               <!-- Username Field -->
               <mat-form-field class="field" appearance="fill" color="accent">
-                <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
+                <mat-icon class="mat-icons color_green" matPrefix *ngIf="userNameControl.valid">sentiment_very_satisfied</mat-icon>
+              <mat-icon class="mat-icons color_red" matPrefix *ngIf="userNameControl.invalid">sentiment_very_dissatisfied</mat-icon>
                 <mat-label>Username</mat-label>
     
-              <input autocomplete="off" matInput [(ngModel)]="registerForm.userName" #username minlength="5" maxlength="10" name="Username" required>
-              <mat-hint>Username should be 5-10 characters</mat-hint>
+              <input autocomplete="off" matInput [formControl]="userNameControl" placeholder="e.g Ronny"  [(ngModel)]="registerForm.userName" #username minlength="3" maxlength="10" name="Username" required>
+              <mat-error *ngIf="userNameControl.invalid">Username should be Alphabets only</mat-error>
               <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
               
               </mat-form-field>
@@ -39,11 +39,11 @@
     
               <!-- LoginName Field -->
               <mat-form-field class="field" appearance="fill">
-                <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
-                <mat-label>Loginname</mat-label>
-              <input autocomplete="off" matInput [(ngModel)]="registerForm.loginName" #loginname minlength="5" maxlength="10" name="Loginname" required>
-              <mat-hint>Login should be 5-10 characters</mat-hint>
+                <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginNameControl.valid">sentiment_very_satisfied</mat-icon>
+              <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginNameControl.invalid">sentiment_very_dissatisfied</mat-icon>
+                <mat-label>LoginName</mat-label>
+              <input autocomplete="off" matInput [formControl]="loginNameControl" placeholder="e.g brad_123" [(ngModel)]="registerForm.loginName" #loginname minlength="5" maxlength="10" name="Loginname" required>
+              <mat-error *ngIf="loginNameControl.invalid">This should be lowercase and can contain numbers</mat-error >
               <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
              
               </mat-form-field>
@@ -51,17 +51,18 @@
     
                 <!-- Password field -->
                 <mat-form-field class="field" appearance="outline" color="accent">
-                  <mat-icon class="mat-icons color_green" matPrefix *ngIf="password.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="password.value.length<5">sentiment_very_dissatisfied</mat-icon>
+                  <mat-icon class="mat-icons color_green" matPrefix *ngIf="pwdControl.valid">sentiment_very_satisfied</mat-icon>
+              <mat-icon class="mat-icons color_red" matPrefix *ngIf="pwdControl.invalid">sentiment_very_dissatisfied</mat-icon>
                     <mat-label>Enter your password</mat-label>
-                    <input autocomplete="off" matInput [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
+                    <input id="pass" autocomplete="off" matInput [formControl]="pwdControl" [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
                      #password minlength="5" maxlength="15" 
-                      required placeholder="Password" value="" 
+                      required placeholder="Password"  
                       >
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-hint >Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
+                    <mat-error *ngIf="pwdControl.hasError('required')">This Field is mandatory*</mat-error>
+                    <mat-error *ngIf="pwdControl.hasError('pattern')">1 Uppercase,1 Lowercase,1 Number & 1 Special Character</mat-error>
                     <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
                     
                   </mat-form-field>
@@ -71,11 +72,18 @@
                     <!-- Telephone field -->
                   <mat-form-field class="field" appearance="fill">
                    
-                    <span matPrefix class="spantag">+91&nbsp;</span>
+                        
+                    <span matPrefix class="spantag">
+                      
+                      +91&nbsp;
+                    <mat-icon class="mat-icons color_green" matPrefix *ngIf="phoneControl.valid">sentiment_very_satisfied</mat-icon>
+                    <mat-icon class="mat-icons color_red" matPrefix *ngIf="phoneControl.invalid">sentiment_very_dissatisfied</mat-icon>  </span>
                     <mat-label>Telephone</mat-label>
-                    <input autocomplete="off" matInput  [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
+                    <input autocomplete="off" id="phone" matInput  [formControl]="phoneControl" type="tel" [(ngModel)]="registerForm.phone"   placeholder="00000-00000" required>
                     <mat-icon matSuffix >phone</mat-icon> 
-                    <mat-hint> Enter a 10 digit Phone Number</mat-hint>
+                    <mat-error *ngIf="phoneControl.hasError('required')">This Field is mandatory*</mat-error>
+                    <mat-error *ngIf="phoneControl.hasError('pattern')">Enter a 10 digit Phone Number</mat-error>
+
                     <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
                     
                   </mat-form-field>
@@ -90,10 +98,10 @@
                     <!-- progressbar.value<100 -->
                       
                       <div class="submitbtn" *ngIf="
-                      (username.value.length>4 &&
-                    loginname.value.length>4 &&
-                    password.value.length>5 &&
-                    phone.value.length==10);
+                      (userNameControl.valid &&
+                      loginNameControl.valid &&
+                    pwdControl.valid&&
+                    phoneControl.valid);
                     then enablesubmit 
                     else disablesubmit
                      "></div>
@@ -105,7 +113,7 @@
                     </ng-template>
     
                     <ng-template  #enablesubmit >
-                      <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
+                      <button class="mat-success"  type="submit" mat-raised-button >Register</button>
                     </ng-template>
     
                       
@@ -123,62 +131,69 @@
           <div class="formcontainer">
             <form (ngSubmit)="submitFormasFarmer()" >
   
-              <!-- Username Field -->
-              <mat-form-field class="field" appearance="fill">
-                <mat-icon class="mat-icons color_green" matPrefix *ngIf="username.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="username.value.length<5">sentiment_very_dissatisfied</mat-icon>
-                <mat-label>Username</mat-label>
-    
-              <input autocomplete="off" matInput [(ngModel)]="registerForm.userName" #username minlength="5" maxlength="10" name="Username" required>
-              <mat-hint>Username should be 5-10 characters </mat-hint>
-              <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
-              
-              </mat-form-field>
-              <!-- Username Field -->
-    
-    
+             <!-- Username Field -->
+             <mat-form-field class="field" appearance="fill" color="accent">
+              <mat-icon class="mat-icons color_green" matPrefix *ngIf="userNameControl.valid">sentiment_very_satisfied</mat-icon>
+            <mat-icon class="mat-icons color_red" matPrefix *ngIf="userNameControl.invalid">sentiment_very_dissatisfied</mat-icon>
+              <mat-label>Username</mat-label>
+  
+            <input autocomplete="off" matInput [formControl]="userNameControl" placeholder="e.g Ronny"  [(ngModel)]="registerForm.userName" #username minlength="3" maxlength="10" name="Username" required>
+            <mat-error *ngIf="userNameControl.invalid">Username should be Alphabets only</mat-error>
+            <mat-hint align="end">{{username.value.length}}/10 </mat-hint>
+            
+            </mat-form-field>
+            <!-- Username Field -->
     
     
-              <!-- LoginName Field -->
-              <mat-form-field class="field" appearance="fill">
-                <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
-                <mat-label>Loginname</mat-label>
-              <input autocomplete="off" matInput [(ngModel)]="registerForm.loginName" #loginname minlength="5" maxlength="10" name="Loginname" required>
-              <mat-hint>Login should be 5-10 characters </mat-hint>
-              <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
-             
-              </mat-form-field>
-              <!-- LoginName Field -->
     
-                <!-- Password field -->
-                <mat-form-field class="field" appearance="outline" color="accent">
-                  <mat-icon class="mat-icons color_green" matPrefix *ngIf="password.value.length>4">sentiment_very_satisfied</mat-icon>
-              <mat-icon class="mat-icons color_red" matPrefix *ngIf="password.value.length<5">sentiment_very_dissatisfied</mat-icon>
-                    <mat-label>Enter your password</mat-label>
-                    <input autocomplete="off" matInput [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
-                     #password minlength="5" maxlength="15" 
-                      required placeholder="Password" value=""
-                      ng-pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
-                      >
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <mat-hint>Password should contain 5-10 characters a-z,A-Z,0-9</mat-hint>
-                    <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
-                    
-                  </mat-form-field>
-                   <!-- Password field -->
+    
+             <!-- LoginName Field -->
+             <mat-form-field class="field" appearance="fill">
+              <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginNameControl.valid">sentiment_very_satisfied</mat-icon>
+            <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginNameControl.invalid">sentiment_very_dissatisfied</mat-icon>
+              <mat-label>LoginName</mat-label>
+            <input autocomplete="off" matInput [formControl]="loginNameControl" placeholder="e.g brad_123" [(ngModel)]="registerForm.loginName" #loginname minlength="5" maxlength="10" name="Loginname" required>
+            <mat-error *ngIf="loginNameControl.invalid">This should be lowercase and can contain numbers</mat-error >
+            <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
+           
+            </mat-form-field>
+            <!-- LoginName Field -->
+    
+               <!-- Password field -->
+               <mat-form-field class="field" appearance="outline" color="accent">
+                <mat-icon class="mat-icons color_green" matPrefix *ngIf="pwdControl.valid">sentiment_very_satisfied</mat-icon>
+            <mat-icon class="mat-icons color_red" matPrefix *ngIf="pwdControl.invalid">sentiment_very_dissatisfied</mat-icon>
+                  <mat-label>Enter your password</mat-label>
+                  <input id="pass" autocomplete="off" matInput [formControl]="pwdControl" [(ngModel)]="registerForm.pwd" name="pwd" [type]="hide ? 'password' : 'text'" 
+                   #password minlength="5" maxlength="15" 
+                    required placeholder="Password"  
+                    >
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="pwdControl.hasError('required')">This Field is mandatory*</mat-error>
+                  <mat-error *ngIf="pwdControl.hasError('pattern')">1 Uppercase,1 Lowercase,1 Number & 1 Special Character</mat-error>
+                  <mat-hint align="end">{{password.value.length}} / 10</mat-hint>
+                  
+                </mat-form-field>
+                 <!-- Password field -->
     
     
                     <!-- Telephone field -->
                   <mat-form-field class="field" appearance="fill">
                    
-                    <span matPrefix class="spantag">+91&nbsp;</span>
+                        
+                    <span matPrefix class="spantag">
+                      
+                      +91&nbsp;
+                    <mat-icon class="mat-icons color_green" matPrefix *ngIf="phoneControl.valid">sentiment_very_satisfied</mat-icon>
+                    <mat-icon class="mat-icons color_red" matPrefix *ngIf="phoneControl.invalid">sentiment_very_dissatisfied</mat-icon>  </span>
                     <mat-label>Telephone</mat-label>
-                    <input autocomplete="off" matInput  [(ngModel)]="registerForm.phone"  name="phoneno" type="tel"  placeholder="00000-00000" #phone required minlength="10" maxlength="10" >
-                    <mat-icon matSuffix>phone</mat-icon> 
-                    <mat-hint> Enter a 10 digit Phone Number</mat-hint>
+                    <input autocomplete="off" id="phone" matInput  [formControl]="phoneControl" type="tel" [(ngModel)]="registerForm.phone" #phone maxlength="10"  placeholder="00000-00000" required>
+                    <mat-icon matSuffix >phone</mat-icon> 
+                    <mat-error *ngIf="phoneControl.hasError('required')">This Field is mandatory*</mat-error>
+                    <mat-error *ngIf="phoneControl.hasError('pattern')">Enter a 10 digit Phone Number</mat-error>
+
                     <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
                     
                   </mat-form-field>
@@ -193,10 +208,10 @@
                     <!-- progressbar.value<100 -->
                       
                       <div class="submitbtn" *ngIf="
-                      (username.value.length>4 &&
-                    loginname.value.length>4 &&
-                    password.value.length>5 &&
-                    phone.value.length==10);
+                      (userNameControl.valid &&
+                      loginNameControl.valid &&
+                    pwdControl.valid &&
+                    phoneControl.valid);
                     then enablesubmit 
                     else disablesubmit
                      "></div>
@@ -208,7 +223,7 @@
                     </ng-template>
     
                     <ng-template  #enablesubmit >
-                      <button class="formbtn" type="submit" mat-raised-button color="accent" >Register</button>
+                      <button class="mat-success" type="submit" mat-raised-button  >Register</button>
                     </ng-template>
     
                       

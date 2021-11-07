@@ -4,6 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from 'src/app/services/login.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewuserComponent } from '../viewuser/viewuser.component';
 
 
 
@@ -39,7 +42,12 @@ export class FarmerstableComponent implements AfterViewInit{
    */
    displayedColumns = ["userName","loginName","phone","actions"];
    role="ROLE_FARMER";
-  constructor(private userService3:UserService,private snackbar:MatSnackBar) { }
+   urole:any;
+  public isadmin=false;
+  public isdealer=false;
+  public isfarmer=false;
+  loggedin=false;
+  constructor(private userService3:UserService,private snackbar:MatSnackBar,private loginservice:LoginService,public dialog: MatDialog) { }
 
 
   ngAfterViewInit(): void {
@@ -81,6 +89,36 @@ export class FarmerstableComponent implements AfterViewInit{
     )
 
     window.location.reload();
-    this.snackbar.open("Dealer Deleted Successfully","OK");
+    this.snackbar.open("Farmer Deleted Successfully","OK");
+  }
+  checkUserType(urole:string){
+
+    if(this.urole=="[ROLE_ADMIN]")
+    {
+      this.isadmin=true;
+      return
+      
+    
+    }
+    if(this.urole=="[ROLE_DEALER]")
+    {
+      this.isdealer=true;
+      return
+    }
+    if(this.urole=="[ROLE_FARMER]")
+    {
+      this.isfarmer=true;
+      return
+    }
+
+
+  }
+  viewUser(loginName:any){
+    //  console.log(loginName);
+    this.loggedin=this.loginservice.isLoggedin();
+    localStorage.setItem("viewloginname",loginName);
+    this.dialog.open(ViewuserComponent);
+    // localStorage.setItem("viewloginname",loginName);
+    
   }
 }

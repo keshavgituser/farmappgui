@@ -4,6 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from 'src/app/services/login.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewuserComponent } from '../viewuser/viewuser.component';
 
 export interface DealerItem {
   userId:number
@@ -37,13 +40,21 @@ export class DealerstableComponent implements AfterViewInit {
    */
   displayedColumns = ["userName","loginName","phone","actions"];
   role="ROLE_DEALER";
-  constructor(private userService2:UserService,private snackbar:MatSnackBar) { }
+  urole:any;
+  public isadmin=false;
+  public isdealer=false;
+  public isfarmer=false;
+  loggedin=false;
+  constructor(private userService2:UserService,private snackbar:MatSnackBar,private loginservice:LoginService,public dialog: MatDialog) { }
 
   ngAfterViewInit(): void {
 
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     // this.table.dataSource = this.dataSource;
+    
+    this.urole=localStorage.getItem("role");
+    this.checkUserType(this.urole);
     this.getAllDealers();
 
   }
@@ -54,6 +65,28 @@ export class DealerstableComponent implements AfterViewInit {
     this.getAllDealers();
     
     
+  }
+  checkUserType(urole:string){
+
+    if(this.urole=="[ROLE_ADMIN]")
+    {
+      this.isadmin=true;
+      return
+      
+    
+    }
+    if(this.urole=="[ROLE_DEALER]")
+    {
+      this.isdealer=true;
+      return
+    }
+    if(this.urole=="[ROLE_FARMER]")
+    {
+      this.isfarmer=true;
+      return
+    }
+
+
   }
 
   getAllDealers(){
@@ -85,7 +118,11 @@ export class DealerstableComponent implements AfterViewInit {
     this.snackbar.open("Dealer Deleted Successfully","OK");
   }
   viewUser(loginName:any){
-    console.log(loginName);
+    //  console.log(loginName);
+    this.loggedin=this.loginservice.isLoggedin();
+    localStorage.setItem("viewloginname",loginName);
+    this.dialog.open(ViewuserComponent);
+    // localStorage.setItem("viewloginname",loginName);
     
   }
 }

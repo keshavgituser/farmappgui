@@ -40,6 +40,10 @@ export class UpdateadComponent implements OnInit {
     postedBy:'',
   }
 
+  urole:any;
+  public isadmin=false;
+  public isdealer=false;
+  public isfarmer=false;
   url='';
   constructor(fb: FormBuilder,private snak:MatSnackBar,private adservice:AdvertiseService) { 
     this.options = fb.group({
@@ -54,13 +58,38 @@ export class UpdateadComponent implements OnInit {
 
   }
 
+  
   ngOnInit(): void {
 
+    this.urole=localStorage.getItem("role");
+    this.checkUserType(this.urole);
     this.getAdvertisement(localStorage.getItem("title"));
   }
 
   getStock() {
     return Math.max(10, this.stockControl.value);
+  }
+  checkUserType(urole:string){
+
+    if(this.urole=="[ROLE_ADMIN]")
+    {
+      this.isadmin=true;
+      return
+      
+    
+    }
+    if(this.urole=="[ROLE_DEALER]")
+    {
+      this.isdealer=true;
+      return
+    }
+    if(this.urole=="[ROLE_FARMER]")
+    {
+      this.isfarmer=true;
+      return
+    }
+
+
   }
   doSubmitForm()
   {

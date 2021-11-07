@@ -17,6 +17,10 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/profile/${this.loginName}`);
   }
 
+  getUserbyName(name:any)
+  {
+    return this.http.get(`${this.baseUrl}/profile/${name}`);
+  }
   updateUser(user_data:any){
     return this.http.put(`${this.baseUrl}/profile/update`,user_data);
   }

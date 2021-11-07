@@ -13,6 +13,11 @@ import { Router } from '@angular/router';
 })
 export class RegistertabComponent implements OnInit {
 
+  options: FormGroup;
+  userNameControl=new FormControl('',Validators.pattern("^[A-Z]{1}[a-z]{1,9}$"));
+  loginNameControl=new FormControl('',Validators.pattern("^[a-z_.0-9]{1,9}$"));
+  phoneControl=new FormControl('',[Validators.pattern("^[0-9]{10}$"),Validators.maxLength(10)]);
+  pwdControl=new FormControl('',Validators.pattern("^[A-Za-z0-9!@#$%&]{5,10}$"));
 
   private urole:string="";
   registerForm={
@@ -28,7 +33,16 @@ export class RegistertabComponent implements OnInit {
 
   
 
-  constructor(private register:RegisterService,private router:Router,private snak:MatSnackBar) { }
+  constructor(fb: FormBuilder,private register:RegisterService,private router:Router,private snak:MatSnackBar) { 
+
+    this.options = fb.group({
+      userName:this.userNameControl,
+      loginName:this.loginNameControl,
+      phone:this.phoneControl,
+      pwd:this.pwdControl
+
+    });
+  }
 
   ngOnInit(): void {
     this.urole="";
@@ -64,12 +78,8 @@ export class RegistertabComponent implements OnInit {
           
       }
     )
-
-
-    if(this.registersuccess==true)
-    {
-      this.snak.open("Registered Successfully");
-    }
+    window.location.reload();
+    this.snak.open("Registered Successfully");
   }
 
   submitFormasFarmer(){
@@ -101,10 +111,12 @@ export class RegistertabComponent implements OnInit {
     )
 
 
-    if(this.registersuccess==true)
-    {
-      this.snak.open("Farmer Registered Successfully");
-    }
+    window.location.reload();
+    this.snak.open("Registered Successfully");
+    // if(this.registersuccess==true)
+    // {
+    //   this.snak.open("Farmer Registered Successfully");
+    // }
   }
 
   submitFormasAdmin(){
@@ -133,7 +145,8 @@ export class RegistertabComponent implements OnInit {
           
       }
     )
-
+    window.location.reload();
+    this.snak.open("Registered Successfully");
 
    
   }

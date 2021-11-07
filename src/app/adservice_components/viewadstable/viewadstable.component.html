@@ -41,7 +41,7 @@
       <th class="column7" mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td class="row7" mat-cell *matCellDef="let row">
         <button mat-icon-button (click)="openupdateDialog(row.title)"><mat-icon>launch</mat-icon></button>
-        <button mat-icon-button color="warn" (click)="deleteAd(row.advertiseIdentifier)"><mat-icon>delete_outline</mat-icon></button>
+        <button mat-icon-button color="warn" *ngIf="isadmin" (click)="deleteAd(row.advertiseIdentifier)"><mat-icon>delete_outline</mat-icon></button>
       </td>
     </ng-container>
     

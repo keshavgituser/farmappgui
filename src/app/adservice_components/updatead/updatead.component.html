@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Create Advertisement</h2>
+<h2 mat-dialog-title>UpdateAdvertisement</h2>
 <mat-dialog-content class="dialogbox">
 
 
@@ -89,16 +89,16 @@
 
         <ng-template #disablecreate>
             <!-- <mat-progress-bar #progress mode="buffer" color="accent"></mat-progress-bar> -->
-            <button class="formbtn" disabled type="submit" mat-raised-button color="accent">Update</button>
+            <button class="formbtn" *ngIf="isadmin" disabled type="submit" mat-raised-button color="accent">Update</button>
 
         </ng-template>
 
         <ng-template #enablecreate>
-            <button class="formbtn" type="submit" (click)="doSubmitForm()" mat-raised-button class="mat-success" >Update</button>
+            <button class="formbtn" *ngIf="isadmin" type="submit" (click)="doSubmitForm()" mat-raised-button class="mat-success" >Update</button>
         </ng-template>
 
 
-        <button class="formbtn" type="reset" mat-stroked-button color="">Clear</button>
+        <button class="formbtn" *ngIf="isadmin" type="reset" mat-stroked-button color="">Clear</button>
     </div>
 
 </mat-dialog-actions>

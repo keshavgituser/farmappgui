@@ -11,10 +11,11 @@
     text-align: center;
     width:35%;
     margin: auto;
+
     
-    /* color:whitesmoke; */
+    color:black;
     /* background-color:#3F3351;  */
-    background-color: #FFF3E4;
+    /* background-color: #FFF3E4; */
     background: none;
     padding: 20px;
      
@@ -91,3 +92,7 @@
 
     color:black;
 }
+.mat-success {
+    background-color: #4E9F3D;
+    color: #fff;
+  }
