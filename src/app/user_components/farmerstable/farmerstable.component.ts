@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -38,7 +39,7 @@ export class FarmerstableComponent implements AfterViewInit{
    */
    displayedColumns = ["userName","loginName","phone","actions"];
    role="ROLE_FARMER";
-  constructor(private userService3:UserService) { }
+  constructor(private userService3:UserService,private snackbar:MatSnackBar) { }
 
 
   ngAfterViewInit(): void {
@@ -63,4 +64,23 @@ export class FarmerstableComponent implements AfterViewInit{
     resp.subscribe(dealer=>this.dataSource.data=dealer as FarmerItem[]);
   }
 
+  deleteUser(loginName:any)
+  {
+    this.userService3.deleteUser(loginName).subscribe(
+
+      response=>{
+        console.log(response);
+        
+      }
+      ,
+      error=>{
+        console.log(error);
+        
+
+      }
+    )
+
+    window.location.reload();
+    this.snackbar.open("Dealer Deleted Successfully","OK");
+  }
 }

@@ -22,4 +22,8 @@ export class ComplaintService {
   getAllComplaints(){
     return this.http.get(`${this.baseUrl}/viewAllComplaint`);
   }
+
+  deleteComplaint(complaintId:any){
+    return this.http.delete(`${this.baseUrl}/${complaintId}`);
+  }
 }

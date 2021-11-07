@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewadComponent } from '../newad/newad.component';
 import { LoginService } from 'src/app/services/login.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface ViewadItem {
   advertiseId:number;
@@ -58,7 +59,7 @@ export class ViewadstableComponent implements AfterViewInit {
   public isadmin=false;
   public isdealer=false;
   public isfarmer=false;
-  constructor(private loginservice:LoginService,private adservice:AdvertiseService,public dialog: MatDialog) {
+  constructor(private snack:MatSnackBar,private loginservice:LoginService,private adservice:AdvertiseService,public dialog: MatDialog) {
     
   }
   openDialog() {
@@ -123,6 +124,21 @@ export class ViewadstableComponent implements AfterViewInit {
 
   }
   
+  deleteAd(advertiseIdentifier:any){
+
+    this.adservice.deleteAdvertise(advertiseIdentifier).subscribe(
+      response=>{
+        console.log(response);
+        
+      },error=>{
+          console.log(error);
+          
+      }
+    )
+
+    window.location.reload();
+    this.snack.open("Deleted Successfully","OK")
+  }
 }
 
 

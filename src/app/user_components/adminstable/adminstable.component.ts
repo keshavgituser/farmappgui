@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
@@ -34,7 +35,7 @@ export class AdminstableComponent implements AfterViewInit {
    */
    displayedColumns = ["userName","loginName","phone","actions"];
    role="ROLE_ADMIN";
-  constructor(private userService1:UserService) { }
+  constructor(private userService1:UserService,private snackbar:MatSnackBar) { }
 
 
   ngAfterViewInit(): void {
@@ -59,4 +60,23 @@ export class AdminstableComponent implements AfterViewInit {
     resp.subscribe(dealer=>this.dataSource.data=dealer as AdminItem[]);
   }
 
+  deleteUser(loginName:any)
+  {
+    this.userService1.deleteUser(loginName).subscribe(
+
+      response=>{
+        console.log(response);
+        
+      }
+      ,
+      error=>{
+        console.log(error);
+        
+
+      }
+    )
+
+    window.location.reload();
+    this.snackbar.open("Dealer Deleted Successfully","OK");
+  }
 }

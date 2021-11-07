@@ -21,5 +21,9 @@ export class AdvertiseService {
   {
     return this.http.get(`${this.baseUrl}/all`);
   }
+  deleteAdvertise(advertiseIdentifier:any)
+  {
+    return this.http.delete(`${this.baseUrl}/${advertiseIdentifier}`);
+  }
 
 }

@@ -52,6 +52,7 @@ export class AddcomplaintComponent implements OnInit {
         console.log(error);
       }
     )
+    window.location.reload();
     this.snak.open("Created Successfully","OK")
    
   }

@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface DealerItem {
   userId:number
@@ -36,7 +37,7 @@ export class DealerstableComponent implements AfterViewInit {
    */
   displayedColumns = ["userName","loginName","phone","actions"];
   role="ROLE_DEALER";
-  constructor(private userService2:UserService) { }
+  constructor(private userService2:UserService,private snackbar:MatSnackBar) { }
 
   ngAfterViewInit(): void {
 
@@ -62,4 +63,26 @@ export class DealerstableComponent implements AfterViewInit {
 
     resp.subscribe(dealer=>this.dataSource.data=dealer as DealerItem[]);
   }
+
+
+  deleteUser(loginName:any)
+  {
+    this.userService2.deleteUser(loginName).subscribe(
+
+      response=>{
+        console.log(response);
+        
+      }
+      ,
+      error=>{
+        console.log(error);
+        
+
+      }
+    )
+
+    window.location.reload();
+    this.snackbar.open("Dealer Deleted Successfully","OK");
+  }
 }
+

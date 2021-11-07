@@ -29,4 +29,9 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/profiles/all`);
 
   }
+  deleteUser(loginName:any)
+  {
+
+    return this.http.delete(`${this.baseUrl}/profile/deleteprofile/${loginName}`);
+  }
 }
