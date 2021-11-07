@@ -73,6 +73,7 @@ export class NewadComponent implements OnInit {
       
       
       )
+      window.location.reload();
       this.snak.open("Created Successfully","OK")
   }
 

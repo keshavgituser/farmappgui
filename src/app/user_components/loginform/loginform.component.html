@@ -16,23 +16,28 @@
         
             <!-- Loginname Field -->
             <mat-form-field class="field" appearance="fill" color="accent">
-              <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginname.value.length>4">sentiment_very_satisfied</mat-icon>
-            <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginname.value.length<5">sentiment_very_dissatisfied</mat-icon>
+              <mat-icon class="mat-icons color_green" matPrefix *ngIf="loginNameControl.valid">sentiment_very_satisfied</mat-icon>
+            <mat-icon class="mat-icons color_red" matPrefix *ngIf="loginNameControl.invalid">sentiment_very_dissatisfied</mat-icon>
               <mat-label>Loginname</mat-label>
-            <input autocomplete="off" [(ngModel)]="credentials.username" matInput #loginname minlength="5" maxlength="10" name="username" required>
+            <input autocomplete="off" matInput [formControl]="loginNameControl" [(ngModel)]="credentials.username"   #loginname minlength="5" maxlength="10" name="username" required>
+            <mat-error *ngIf="loginNameControl.hasError('required')">Please Enter a Username</mat-error>
+            <mat-error *ngIf="loginNameControl.hasError('pattern')">Please Enter a Valid Username</mat-error>
             <mat-hint align="end">{{loginname.value.length}}/10 </mat-hint>
             </mat-form-field>
             <!-- Loginname Field -->
 
             <!-- Password Field -->
             <mat-form-field class="field" appearance="fill"color="accent">
-              <mat-icon class="mat-icons color_green" matPrefix *ngIf="pwd.value.length>4">sentiment_very_satisfied</mat-icon>
-                <mat-icon class="mat-icons color_red" matPrefix *ngIf="pwd.value.length<5">sentiment_very_dissatisfied</mat-icon>
+              <mat-icon class="mat-icons color_green" matPrefix *ngIf="pwdControl.valid">sentiment_very_satisfied</mat-icon>
+                <mat-icon class="mat-icons color_red" matPrefix *ngIf="pwdControl.invalid">sentiment_very_dissatisfied</mat-icon>
                 <mat-label>Password</mat-label>
-                <input autocomplete="off" [(ngModel)]="credentials.password" matInput #pwd required [type]="hide ? 'password' : 'text'" name="password" >
+                <input autocomplete="off" matInput [formControl]="pwdControl" [(ngModel)]="credentials.password"   #pwd required [type]="hide ? 'password' : 'text'" name="password" >
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="pwdControl.hasError('required')">Please Enter a Password</mat-error>
+                <mat-error *ngIf="pwdControl.hasError('pattern')">Please Enter a Valid Password</mat-error>
+                
                 <mat-hint align="end">{{pwd.value.length}}/10 </mat-hint>
               </mat-form-field>
 
@@ -42,7 +47,7 @@
               <div class="loginbtn">
                 <!-- "loginname.value.length<5 || pwd.value.length<5" -->
                 <button *ngIf="loginname.value.length<1 || pwd.value.length<1" class="formbtn" name="dsubmitbtn" type="submit" mat-raised-button  disabled>Login</button>
-                <button *ngIf="loginname.value.length>0 && pwd.value.length>0" class="formbtn" name="submitbtn" type="submit" mat-raised-button color="accent" >Login</button>
+                <button *ngIf="loginname.value.length>0 && pwd.value.length>0" class="mat-success" name="submitbtn" type="submit" mat-raised-button  >Login</button>
                 <button class="formbtn" type="reset" name="resetbtn" mat-stroked-button>Reset</button>
               </div>
     

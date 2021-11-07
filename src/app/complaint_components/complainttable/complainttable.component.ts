@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { _MatTableDataSource } from '@angular/material/table';
 import { ComplaintService } from 'src/app/services/complaint.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface ComplaintItem {
   complainDescription:string;
@@ -29,10 +30,10 @@ export class ComplainttableComponent implements AfterViewInit {
     createdBy:"string",
     createdAt:"string"
    */
-  displayedColumns = ["createdBy","createdAt","complainDescription"];
+  displayedColumns = ["createdBy","createdAt","complainDescription","actions"];
 
 
-  constructor(private compService:ComplaintService) { }
+  constructor(private compService:ComplaintService,private snak:MatSnackBar) { }
 
   ngAfterViewInit(): void {
 
@@ -49,7 +50,6 @@ export class ComplainttableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.getAllComplaints();
 
-
   }
 
 
@@ -62,6 +62,25 @@ export class ComplainttableComponent implements AfterViewInit {
 
 
     
+  }
+  deleteData(complaintId:any){
+  // console.log("Deleted",complaintId);
+
+  this.compService.deleteComplaint(complaintId).subscribe(
+
+    response=>{
+        console.log("response",response);
+        
+    },
+    error=>{
+      console.log("error",error);
+      
+    }
+    
+  )
+  
+  window.location.reload();
+  this.snak.open("Deleted Successfully");
   }
 
 }

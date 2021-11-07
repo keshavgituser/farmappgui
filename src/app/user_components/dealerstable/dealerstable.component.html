@@ -1,4 +1,4 @@
-<div class="data-table">
+<div class="data-table" *ngIf="isadmin">
     <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="DEALER_DATA">
 
          <!-- username Column -->
@@ -20,8 +20,8 @@
       <ng-container matColumnDef="actions">
         <th class="column7" mat-header-cell *matHeaderCellDef mat-sort-header></th>
         <td class="row7" mat-cell *matCellDef="let row">
-          <button mat-icon-button><mat-icon>launch</mat-icon></button>
-          <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+          <button mat-icon-button (click)="viewUser(row.loginName)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="deleteUser(row.loginName)"><mat-icon>delete_outline</mat-icon></button>
         </td>
       </ng-container>
   

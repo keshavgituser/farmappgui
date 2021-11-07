@@ -13,16 +13,11 @@
     padding: 20px;
     border: solid 1px;
     padding: 3px;
-    bottom:600%;
-    left: 25%;
+    left: 30%;
     border-top-left-radius: 1%;
     border-top-right-radius: 1%;
     border-bottom-left-radius: 1%;
     border-bottom-right-radius: 1%;
-}
-
-.container{
-    margin-top: 10px;
 }
 
 .card h1{
@@ -54,7 +49,7 @@
     height: 80%;
     /* background-color:#1F1D36;   */
     position: absolute;
-    top: -300px;
+    top: 30%;
     background: none;
 }
 

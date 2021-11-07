@@ -11,6 +11,10 @@
     width:150%;
     height:5%;
 }
+.mat-success {
+    background-color: #4E9F3D;
+    color: #fff;
+  }
 .mat-icons.color_green { color: #4E9F3D; }
 
 .mat-icons.color_red { color: #E02401; }
