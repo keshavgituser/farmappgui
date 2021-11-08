@@ -3,7 +3,7 @@
   height: 10%;
   /* background-color: #24262b; */
   color: #24262b;
-  background-image: url(src\assets\backgroung.png);
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
 }
 
 .example-spacer {
@@ -21,12 +21,12 @@
   width: 200px;
   margin: 0%;
   color: #24262b;
-  background-image: url(src\assets\backgroung.png);
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
 }
 
 .toggle-button {
   color: #24262b;
-  background-image: url(src\assets\backgroung.png);
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
   margin: 0%;
   border: none;
   padding: 0%;
