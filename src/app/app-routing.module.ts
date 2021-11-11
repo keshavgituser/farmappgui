@@ -59,12 +59,14 @@ const routes: Routes = [
   {
     path:"viewad",
     component:ViewadvertiseComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate:[AuthGuard]
   },
   {
     path:"viewallads",
     component:ViewadstableComponent,
-    pathMatch:"full"
+    pathMatch:"full",
+    canActivate:[AuthGuard]
   },
   {
     path:'',

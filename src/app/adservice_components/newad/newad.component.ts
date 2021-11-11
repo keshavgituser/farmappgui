@@ -51,7 +51,7 @@ export class NewadComponent implements OnInit {
   }
   doSubmitForm()
   {
-    // console.log("Trying to create advertisement");
+     console.log("Trying to create advertisement");
    
     console.log("Data ",this.ad_data);
 
@@ -67,10 +67,6 @@ export class NewadComponent implements OnInit {
         console.log(error);
         
       }
-
-   
-      
-      
       
       )
       window.location.reload();

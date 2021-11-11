@@ -75,9 +75,6 @@ export class LoginformComponent implements OnInit {
               console.log("Redirecting to Farmer Dashboard");
               window.location.href="/farmerdashboard"
             }
-
-            
-
           },
           (error:any)=>{
             this.snack.open("Invalid Credentials","Ok");
