@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './adservice_components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -47,13 +46,18 @@ import { ComplainttableComponent } from './complaint_components/complainttable/c
 import { DealerstableComponent } from './user_components/dealerstable/dealerstable.component';
 import { FarmerstableComponent } from './user_components/farmerstable/farmerstable.component';
 import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
+import { NewadComponent } from './adservice_components/newad/newad.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateadComponent } from './adservice_components/updatead/updatead.component';
+import { ViewuserComponent } from './user_components/viewuser/viewuser.component';
+// For MDB Angular Free
+// import { CarouselModule, WavesModule } from 'angular-bootstrap-md'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AdvertisementformComponent,
     HomeComponent,
     ViewadvertiseComponent,
     RegisterformComponent,
@@ -72,6 +76,9 @@ import { AdminstableComponent } from './user_components/adminstable/adminstable.
     DealerstableComponent,
     FarmerstableComponent,
     AdminstableComponent,
+    NewadComponent,
+    UpdateadComponent,
+    ViewuserComponent,
     
   ],
   imports: [
@@ -97,7 +104,9 @@ BrowserModule,
     MatListModule,
     LayoutModule,
     MatSidenavModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
+
 
   ],
   providers: 

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>View Profile</h2>
+<mat-dialog-content class="dialogbox">
+   <!-- loginname Field -->
+   <mat-form-field  class="field" appearance="outline" color="primary">
+    <mat-label>LoginName</mat-label>
+    <input matInput disabled name="loginName" [(ngModel)]="view_user.loginName">
+  </mat-form-field>
+  <!-- /loginname Field -->
+
+  <!--all fields disabled-->
+
+  <mat-form-field class="field" appearance="outline" color="primary">
+    <mat-label>Username</mat-label>
+    <input matInput disabled name="userName" [(ngModel)]="view_user.userName">
+  </mat-form-field>
+
+  <mat-form-field class="field" appearance="outline" color="primary">
+    <mat-label>Phone</mat-label>
+    <input matInput disabled name="phone" [(ngModel)]="view_user.phone">
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions class="dialogbtn">
+
+
+</mat-dialog-actions>

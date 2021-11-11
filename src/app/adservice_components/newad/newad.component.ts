@@ -1,15 +1,14 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdvertiseService } from 'src/app/services/advertise.service';
 
 @Component({
-  selector: 'app-advertisementform',
-  templateUrl: './advertisementform.component.html',
-  styleUrls: ['./advertisementform.component.css']
+  selector: 'app-newad',
+  templateUrl: './newad.component.html',
+  styleUrls: ['./newad.component.css']
 })
-export class AdvertisementformComponent implements OnInit {
+export class NewadComponent implements OnInit {
 
   options: FormGroup;
   adIdControl=new FormControl('',Validators.pattern("^[a-zA-Z]{1,2}[0-9]{1,4}$"));
@@ -22,13 +21,6 @@ export class AdvertisementformComponent implements OnInit {
 
   username=localStorage.getItem("loggedinusername");
 
-
-  // @param title
-  // * @param advertiseIdentifier
-  // * @param offerDescription
-  // * @param availableStock
-  // * @param postedBy
-
   ad_data={  
     
     title:'',
@@ -39,7 +31,7 @@ export class AdvertisementformComponent implements OnInit {
   }
 
   url='';
-  constructor(fb: FormBuilder,private snak:MatSnackBar,private adservice:AdvertiseService) { 
+  constructor(fb: FormBuilder,private snak:MatSnackBar,private adservice:AdvertiseService) {
 
     this.options = fb.group({
       title:this.adtitleControl,
@@ -48,10 +40,10 @@ export class AdvertisementformComponent implements OnInit {
       availableStock:this.stockControl,
       postedBy:this.username
     });
-
-  }
+   }
 
   ngOnInit(): void {
+
   }
 
   getStock() {
@@ -59,7 +51,7 @@ export class AdvertisementformComponent implements OnInit {
   }
   doSubmitForm()
   {
-    // console.log("Trying to create advertisement");
+     console.log("Trying to create advertisement");
    
     console.log("Data ",this.ad_data);
 
@@ -75,15 +67,10 @@ export class AdvertisementformComponent implements OnInit {
         console.log(error);
         
       }
-
-   
-      
-      
       
       )
+      window.location.reload();
+      this.snak.open("Created Successfully","OK")
   }
 
-  
-
-  
 }

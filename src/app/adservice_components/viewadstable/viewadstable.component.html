@@ -1,4 +1,6 @@
-<div class="data-table">
+
+<div class="data-table" *ngIf="isadmin || isdealer">
+  <button class="createbtn" mat-raised-button (click)="opencreateDialog()"><mat-icon>add</mat-icon> Create</button>
   <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="AD_DATA">
     <!-- Id Column -->
     <ng-container  matColumnDef="advertiseId">
@@ -35,6 +37,14 @@
       <th class="column6" mat-header-cell *matHeaderCellDef mat-sort-header>postedBy</th>
       <td class="row6" mat-cell *matCellDef="let row">{{row.postedBy}}</td>
     </ng-container>
+    <ng-container matColumnDef="actions">
+      <th class="column7" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td class="row7" mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="openupdateDialog(row.title)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn" *ngIf="isadmin" (click)="deleteAd(row.advertiseIdentifier)"><mat-icon>delete_outline</mat-icon></button>
+      </td>
+    </ng-container>
+    
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>

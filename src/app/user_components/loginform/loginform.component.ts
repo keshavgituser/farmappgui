@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from './../../services/login.service';
 
@@ -10,6 +11,9 @@ import { LoginService } from './../../services/login.service';
 })
 export class LoginformComponent implements OnInit {
 
+  options: FormGroup;
+  loginNameControl=new FormControl('',[Validators.required, Validators.pattern("^[a-z_.0-9]{1,9}$")]);
+  pwdControl=new FormControl('',[Validators.required,Validators.pattern("^[A-Za-z0-9!@#$%&]{5,10}$")]);
   credentials={
 
     username:'',
@@ -18,7 +22,13 @@ export class LoginformComponent implements OnInit {
 
 
   loggedinusername="";
-  constructor(private loginservice:LoginService,private snack:MatSnackBar) { }
+  constructor(fb: FormBuilder,private loginservice:LoginService,private snack:MatSnackBar) { 
+    this.options = fb.group({
+      username:this.loginNameControl,
+      password:this.pwdControl
+
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -65,9 +75,6 @@ export class LoginformComponent implements OnInit {
               console.log("Redirecting to Farmer Dashboard");
               window.location.href="/farmerdashboard"
             }
-
-            
-
           },
           (error:any)=>{
             this.snack.open("Invalid Credentials","Ok");
