@@ -10,3 +10,15 @@
     margin-top: 10px;
     text-align: center;
 }
+.right-container{
+
+    position: fixed;
+    text-align: center;
+    margin-top: -1%;
+    margin-left: 25%;
+    width: 18%;
+    max-height: max-content;
+    /* background-color:#1F1D36;   */
+    top: 80px;
+    right: 7px;
+}

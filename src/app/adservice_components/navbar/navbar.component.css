@@ -1,12 +1,47 @@
-
-.navbar{
-    height: 10%;
-    background-color: #E8E1D9;
+.navbar {
+  /* position: fixed; */
+  height: 10%;
+  /* background-color: #24262b; */
+  color: #24262b;
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
 }
+
 .example-spacer {
-    flex: 1 1 auto;
-  }
-.label{
-    margin-left: 2px;
-    margin: 2px;
+  flex: 1 1 auto;
+}
+
+.label {
+  margin-left: 2px;
+  margin: 2px;
+}
+
+/* Sidenav css */
+
+.sidenav {
+  width: 200px;
+  margin: 0%;
+  color: #24262b;
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
+}
+
+.toggle-button {
+  color: #24262b;
+  background-image: url("https://cdn.wallpapersafari.com/81/79/HyUmvI.jpg");
+  margin: 0%;
+  border: none;
+  padding: 0%;
+}
+
+
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  
+
+}
+
+.sidenav-container {
+  height: 100%;
+  left: -7%;
+  
 }

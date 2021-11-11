@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ComplaintService } from 'src/app/services/complaint.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from 'src/app/services/login.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-addcomplaint',
@@ -10,13 +11,23 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class AddcomplaintComponent implements OnInit {
 
+
+  options: FormGroup;
+  compdescControl=new FormControl('',Validators.pattern("^[a-zA-Z0-9 %$@]{5,100}$"));
+
+
+
   username=localStorage.getItem("loggedinusername");
   comp_data={
     complainDescription:"",
     createdBy:`${this.username}`
   }
 
-  constructor(private complaint:ComplaintService, private snak:MatSnackBar) { 
+  constructor(fb: FormBuilder,private complaint:ComplaintService, private snak:MatSnackBar) { 
+    this.options = fb.group({
+      
+      complainDescription:this.compdescControl,
+    });
   }
   
   ngOnInit(): void {
@@ -41,6 +52,8 @@ export class AddcomplaintComponent implements OnInit {
         console.log(error);
       }
     )
+    window.location.reload();
+    this.snak.open("Created Successfully","OK")
    
   }
 

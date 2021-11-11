@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './adservice_components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdvertisementformComponent } from './adservice_components/advertisementform/advertisementform.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -12,12 +11,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './adservice_components/home/home.component';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective } from '@angular/forms';
+import { FormsModule, NgControl, FormBuilder, FormGroup, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { ViewadvertiseComponent } from './adservice_components/viewadvertise/viewadvertise.component';
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
-import { ViewalladsComponent } from './adservice_components/viewallads/viewallads.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -35,16 +33,33 @@ import { ComplaintService } from './services/complaint.service';
 import { AuthinterceptorService } from './services/authinterceptor.service';
 import { RegistertabComponent } from './user_components/registertab/registertab.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FooterComponent } from './adservice_components/footer/footer.component';
+import { AdminpanelComponent } from './user_components/adminpanel/adminpanel.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+import { MainNavComponent } from './complaint_components/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ViewadstableComponent } from './adservice_components/viewadstable/viewadstable.component';
+import { ComplainttableComponent } from './complaint_components/complainttable/complainttable.component';
+import { DealerstableComponent } from './user_components/dealerstable/dealerstable.component';
+import { FarmerstableComponent } from './user_components/farmerstable/farmerstable.component';
+import { AdminstableComponent } from './user_components/adminstable/adminstable.component';
+import { NewadComponent } from './adservice_components/newad/newad.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateadComponent } from './adservice_components/updatead/updatead.component';
+import { ViewuserComponent } from './user_components/viewuser/viewuser.component';
+// For MDB Angular Free
+// import { CarouselModule, WavesModule } from 'angular-bootstrap-md'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AdvertisementformComponent,
     HomeComponent,
     ViewadvertiseComponent,
-    ViewalladsComponent,
     RegisterformComponent,
     LoginformComponent,
     AdmindashboardComponent,
@@ -53,6 +68,17 @@ import {MatTabsModule} from '@angular/material/tabs';
     AboutusComponent,
     AddcomplaintComponent,
     RegistertabComponent,
+    FooterComponent,
+    AdminpanelComponent,
+    MainNavComponent,
+    ViewadstableComponent,
+    ComplainttableComponent,
+    DealerstableComponent,
+    FarmerstableComponent,
+    AdminstableComponent,
+    NewadComponent,
+    UpdateadComponent,
+    ViewuserComponent,
     
   ],
   imports: [
@@ -72,7 +98,15 @@ BrowserModule,
     MatPaginatorModule,
     MatProgressBarModule,
     HttpClientModule,    
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatListModule,
+    LayoutModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    MatDialogModule
+
 
   ],
   providers: 

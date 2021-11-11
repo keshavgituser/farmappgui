@@ -1,21 +1,65 @@
 <mat-toolbar class="navbar">
-   
-  
   <!-- home icon -->
 <!-- I will show home icon if user is logged in as admin else hide 
     *ngIf="loggedinasadmin" by using this code on btn and icon both
 -->
-<button  routerLink=''  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon >home</mat-icon>
+
+<!-- sidenav -->
+<!-- Sidenav -->
+
+<div *ngIf="loggedin" class="sidenavbar">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      
+      <mat-nav-list *ngIf="loggedin">
+        <a mat-list-item *ngIf="isadmin || isdealer" href="viewallads">Manage Advertisements</a>
+        <a mat-list-item *ngIf="isadmin" href="viewallcomplaints">View All Complaints</a>
+        <a mat-list-item *ngIf="isadmin || isfarmer" href="addcomplaint" >Create Complaint</a>
+        <a mat-list-item *ngIf="isadmin" href="viewalldealers">View All Dealers</a>
+        <a mat-list-item *ngIf="isadmin" href="viewallfarmers">View All Farmers</a>
+        <a mat-list-item *ngIf="isadmin" href="viewalladmins">View All Admins</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="toggle-button">
+      <!-- <mat-toolbar color="primary"> -->
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="(isHandset$ | async) || loggedin">
+          <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
+        </button>
+        <!-- <span>farmappgui</span> -->
+      <!-- </mat-toolbar> -->
+      <!-- Add Content Here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+
+<button *ngIf="!loggedin"  routerLink=''  mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon *ngIf="!loggedin">home</mat-icon>
   </button> 
 
+
+
+
+
+
   <!-- Span text -->
-  <span>My App</span>
+  <span>Farmer Assistant</span>
   <span class="example-spacer"></span>
 
   <!-- register -->
   <mat-label class="label" *ngIf="!loggedin">Register</mat-label>
-  <a class="navbar-btn" *ngIf="!loggedin" routerLink="registertab" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
+  <a class="navbar-btn" *ngIf="!loggedin"  routerLink="registertab" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" value="Register">
     <!-- <mat-icon>perm_identity</mat-icon> -->
     
     
@@ -25,7 +69,7 @@
 
   <!-- login -->
   <mat-label class="label" *ngIf="!loggedin">Login</mat-label>
-  <a class="navbar-btn" *ngIf="!loggedin" routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <a class="navbar-btn" *ngIf="!loggedin"  routerLink="login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>vpn_key</mat-icon>
     
   </a>
@@ -46,9 +90,9 @@
 
 
   <!-- loggedinusername -->
-  <mat-label class="label" [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">{{loggedinusername}}</mat-label>
-  <a class="navbar-btn" *ngIf="loggedin" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>perm_identity</mat-icon>
+  <mat-label class="label"  [(ngModel)]="loggedinusername" *ngIf="loggedin" value="loggedinusername">{{loggedinusername}}</mat-label>
+  <a class="navbar-btn" *ngIf="loggedin" (click)="userDashboard()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>dashboard</mat-icon>
     
   </a>
 
@@ -59,4 +103,5 @@
     <mat-icon>input</mat-icon>
     
   </a>
+  <ng-content></ng-content>
 </mat-toolbar>

@@ -1,0 +1,38 @@
+.full-width-table {
+  width: 100%;
+  background: transparent;
+  border: whitesmoke solid;
+  
+}
+.mat-dialog-container {
+  width: 10%;
+}
+
+.createbtn{
+  margin-bottom: 7px;
+}
+
+.data-table{
+  position: absolute;
+  width: 70%;
+  height: 20px;
+  margin: 20px auto;
+  top: 60px;
+  left:250px;
+  background: transparent;
+ 
+  
+}
+.mat-cell{
+  border: black 0.1; 
+}
+.mat-header-cell{
+  border:whitesmoke solid 0.1;
+}
+.paginator{
+
+  background: transparent;
+  border: whitesmoke solid;
+}
+
+

@@ -1,18 +1,4 @@
-.card{
-    text-align: center;
-    width:25%;
-    height: 50%;
-    margin: auto;
-    background-color: whitesmoke;
-    padding: 20px;
-    border-top-left-radius: 1%;
-}
-.container{
-    position: inherit;
-    margin-top: 20px;
-    text-align: center;
-    
-}
+
 .formbtn{
     text-align: center;
     margin:10px;
@@ -20,9 +6,15 @@
 
 }
 .field{
-    width:90%;
+    position: inherit;
+
+    width:150%;
     height:5%;
 }
+.mat-success {
+    background-color: #4E9F3D;
+    color: #fff;
+  }
 .mat-icons.color_green { color: #4E9F3D; }
 
 .mat-icons.color_red { color: #E02401; }
@@ -31,6 +23,46 @@
     width: 90px;
     height:90px;
 }
+.maincontainer{
+
+    position: relative;
+}
+
+.container{
+    text-align: center;
+    margin-top: -3%;
+    margin-left: 25%;
+    width: 50%;
+    height: 80%;
+    /* background-color:#1F1D36;   */
+    position: absolute;
+    top: 100px;
+    background: none;
+      
+}
+.banner{
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index: -1;
+    margin-bottom: -200px;
+}
+.card{
+    text-align: center;
+    width:30%;
+    height: 50%;
+    margin: auto;
+    margin-right: 42%;
+    /* background-color: whitesmoke; */
+    background: none;
+    padding: 20px;
+    border-top-left-radius: 1%;
+}
+.loginbtn{
+    position: absolute;
+    left: 33%;
+}
 .img-container{
     text-align: center;
+    position: relative;
+    left: 45px;
 }

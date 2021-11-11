@@ -1,0 +1,41 @@
+<div class="data-table">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="AD_DATA">
+
+
+         <!-- username Column -->
+      <ng-container  matColumnDef="userName">
+        <th class="column1" mat-header-cell *matHeaderCellDef mat-sort-header>Usernames</th>
+        <td class="row1" mat-cell *matCellDef="let row">{{row.userName}}</td>
+      </ng-container>
+         <!-- loginname Column -->
+      <ng-container  matColumnDef="loginName">
+        <th class="column1" mat-header-cell *matHeaderCellDef mat-sort-header>Loginnames</th>
+        <td class="row1" mat-cell *matCellDef="let row">{{row.loginName}}</td>
+      </ng-container>
+         <!-- Phone number Column -->
+      <ng-container  matColumnDef="phone">
+        <th class="column1" mat-header-cell *matHeaderCellDef mat-sort-header>Phone numbers</th>
+        <td class="row1" mat-cell *matCellDef="let row">{{row.phone}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th class="column7" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td class="row7" mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="viewUser(row.loginName)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="deleteUser(row.loginName)"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>
+    </table>
+  
+    <!-- [pageSizeOptions]="[5, 10, 20]"    [length]="dataSource?.data?.length"-->
+    <mat-paginator class="paginator" #paginator
+        [pageIndex]="0"
+        [pageSize]="5"
+         [pageSizeOptions]="[5]" 
+        aria-label="Select page">
+    </mat-paginator>
+  </div>
+  

@@ -1,4 +1,4 @@
-<div class="container">
+  <div class="container">
 
     <mat-card class="card">
     <form (ngSubmit)="doSubmitForm()">
@@ -19,17 +19,17 @@
 
       <mat-form-field class="field" appearance="outline" color="accent">
           <mat-label>Complaint Description</mat-label>
-          <textarea matInput minlength="5" maxlength="50" required #complaintdesc placeholder="Complaint description" 
+          <textarea matInput minlength="5" autocomplete="off" maxlength="100" [formControl]="compdescControl" required #complaintdesc placeholder="Complaint description" 
           name="compDescription" [(ngModel)]="comp_data.complainDescription"></textarea>
-          <mat-icon class="mat-icons color_green" matSuffix *ngIf="complaintdesc.value.length>0">sentiment_very_satisfied</mat-icon>
-          <mat-icon class="mat-icons color_red" matSuffix *ngIf="complaintdesc.value.length<1">sentiment_very_dissatisfied</mat-icon>
-          <mat-hint align="start">Description should be more than 10 characters</mat-hint>
-          <mat-hint align="end">{{complaintdesc.value.length}}/100 </mat-hint>
+          <mat-icon class="mat-icons color_green" matSuffix *ngIf="compdescControl.valid">sentiment_very_satisfied</mat-icon>
+          <mat-icon class="mat-icons color_red" matSuffix *ngIf="compdescControl.invalid">sentiment_very_dissatisfied</mat-icon>
+          <mat-error align="start" *ngIf="compdescControl.invalid">>Description should be more than 5 Alphabets</mat-error>
+          <mat-hint align="end">{{compdescControl.value.length}}/100 </mat-hint>
       </mat-form-field>
 
-        <button class="formbtn" *ngIf="complaintdesc.value.length<=0" type="submit" disabled mat-raised-button color="accent">Submit</button>
-        <button class="formbtn" *ngIf="complaintdesc.value.length>0" type="submit" mat-raised-button color="accent">Submit</button>
-        <button class="formbtn" type="reset" mat-raised-button color="accent">Reset</button>
+        <button class="formbtn" *ngIf="compdescControl.invalid" type="submit" disabled mat-raised-button color="accent">Submit</button>
+        <button class="formbtn" *ngIf="compdescControl.valid" type="submit" mat-raised-button color="primary">Submit</button>
+        <button class="formbtn" type="reset" mat-stroked-button color="primary">Reset</button>
       </form>
   </mat-card>
 </div>

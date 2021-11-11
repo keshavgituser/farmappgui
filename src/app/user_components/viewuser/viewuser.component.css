@@ -1,0 +1,61 @@
+* {
+    background-color: white;
+  }
+  
+  .mat-container{
+    height: 80%;
+    width: 100%;
+  }
+  
+  
+  .normal-form {
+    position: absolute;
+    width: 60%;
+    height: 100px;
+    margin: 20px auto;
+    top: 170px;
+    left: 250px;
+    align-content: center;
+    /* background: transparent; */
+  }
+  .field{
+    width: 100%;
+    margin-bottom: -3px;
+    height: fit-content;
+    display: block;
+  }
+  .dialogbtn{
+    margin-top: 1%;
+  }
+  
+  .dialogbox{
+    width: 100%;
+    direction: ltr;
+    display: block;
+  
+  }
+  
+  
+  
+  .form-header span {
+    background: transparent;
+    background: whitesmoke;
+  }
+  
+  .form-header {
+    background: transparent;
+    background: whitesmoke;
+  }
+  
+  
+  /* Form css */
+  .mat-icons.color_green { color: #4E9F3D; }
+  
+  
+  .mat-icons.color_red { color: #E02401; }
+  
+  
+  .mat-success {
+    background-color: #4E9F3D;
+    color: #fff;
+  }
